@@ -1,0 +1,24 @@
+{
+  "name": "babeladvisor",
+  "version": "1.0.0",
+  "description": "Proyecto BABEL fullstack con tecnologias frontend (html5, javascript, css, angular) y backend (node, express, mongo, mongoose). Web sobre turismo y recomendaciones colaborativas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hecmocer/BabelAdvisor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hecmocer/BabelAdvisor/issues"
+  },
+  "homepage": "https://github.com/hecmocer/BabelAdvisor#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb": "^2.1.14",
+    "mongoose": "^4.4.11"
+  }
+}
