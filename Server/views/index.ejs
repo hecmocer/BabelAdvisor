@@ -1,11 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+    <title>API INDEX</title>
+</head>
+<body>
+    <h1>API BabelAdvisor</h1>
+
+    <table style="width:600px">
+        <tr>
+            <td>
+                Ruta
+            </td>
+            <td>
+                Petición
+            </td>
+            <td>
+                Acción
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Renderiza el índice del api
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/users
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los usuarios
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/users
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un usuario
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/users/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el usuario con dicho _id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/destinations
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los destinos
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/destinations
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un destino
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/destinations/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el destino con dicho _id
+            </td>
+        </tr>
+    </table>
+</body>
 </html>
