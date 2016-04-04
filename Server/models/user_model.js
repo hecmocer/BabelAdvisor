@@ -16,6 +16,8 @@ userSchema.statics.listAll = function(cb){
     // Preparamos la query sin ejecutarla
     var query = User.find({});
 
+    query.select('name email');
+
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){
         if(err){
@@ -28,7 +30,7 @@ userSchema.statics.listAll = function(cb){
 };
 
 // Registramos el schema en mongoose
-var userModel = mongoose.model('User', userSchema);
+var User = mongoose.model('User', userSchema);
 
 // Exportamos el modelo
-module.exports = userModel;
+module.exports = User;
