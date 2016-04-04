@@ -1,0 +1,40 @@
+{
+    "destinations": [
+    {
+        "name": "Londres",
+        "country": "Reino Unido",
+        "picture_main": "http://cdn.ek.aero/english/images/London-1_tcm233-2111842.jpg",
+        "picture_1": "https://media-cdn.tripadvisor.com/media/photo-s/0a/87/6d/26/london-bridge.jpg",
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Siempre está nublado.",
+        "price": "alto",
+        "upVotes": 102,
+        "downVotes": 3
+    },
+    {
+        "name": "Madrid",
+        "country": "España",
+        "picture_main": "http://www.precege.com/wp-content/uploads/2015/12/oposiciones-madrid.jpg",
+        "picture_1": "http://www.hotelreginamadrid.com/files/hotel/city-a/madrid-hotel-regina.jpg",
+        "picture_2": "https://www.hotel-bb.es/data/images/1/3/2/02_madrid.jpg",
+        "picture_3": "https://cdn.civitatis.com/guias/madrid/fotos/torres-futuro-madrid.jpg",
+        "opinion": "Comida y gente excepcional",
+        "price": "Bajo",
+        "upVotes": 2096,
+        "downVotes": 0
+    },
+    {
+        "name": "Copenhague",
+        "country": "Dinamarca",
+        "picture_main": "http://trv-checkin.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/12/2014/10/Fotolia_57057446_Subscription_Monthly_M.jpg",
+        "picture_1": null,
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Una ciudad inolvidable",
+        "price": "Medio",
+        "upVotes": 54,
+        "downVotes": 33
+    }
+    ]
+}
