@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,8 +7,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+// Inicializamos los modelos de mongoose
+// Se puede acceder a ellos mediante mongoose.model('<MODELO>')
+require('./models/user_model');
+require('./models/destination_model');
+
+// Requerimos las rutas
+var index = require('./routes/api/v1/index');
+var users = require('./routes/api/v1/users');
+var destinations = require('./routes/api/v1/destinations');
 
 var app = express();
 
@@ -22,8 +31,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// Hacemos que las rutas para los routers sean las especificadas
+app.use('/api/v1/', index);
+app.use('/api/v1/users', users);
+app.use('/api/v1/destinations', destinations);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
