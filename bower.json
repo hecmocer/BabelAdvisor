@@ -1,0 +1,19 @@
+{
+  "name": "babeladvisor",
+  "description": "Proyecto BABEL fullstack con tecnologias frontend (html5, javascript, css, angular) y backend (node, express, mongo, mongoose). Web sobre turismo y recomendaciones colaborativas",
+  "main": "index.js",
+  "authors": [
+    "Héctor <hecmocer@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/hecmocer/BabelAdvisor",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
