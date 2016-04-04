@@ -15,7 +15,7 @@ En la carpeta Client:
 
 
 # Ejecución del proyecto:
-Ejecutar sobre la carpeta Server: npm start
+Ejecutar sobre la carpeta Server: 'npm start' o mejor 'nodemon'
     Entonces al abrir un navegador y acceder a la url localhost:3000 tendremos la api disponible
 
 Ejecutar sobre la carpeta Server: mongod_BabelAdvisor
