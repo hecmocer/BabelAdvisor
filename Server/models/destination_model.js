@@ -23,6 +23,8 @@ destinationSchema.statics.listAll = function(cb){
     // Preparamos la query sin ejecutarla
     var query = Destination.find({});
 
+    query.select('name picture_main upVotes downVotes');
+
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){
         if(err){
@@ -35,7 +37,7 @@ destinationSchema.statics.listAll = function(cb){
 };
 
 // Registramos el schema en mongoose
-var destinationModel = mongoose.model('Destination', destinationSchema);
+var Destination = mongoose.model('Destination', destinationSchema);
 
 // Exportamos el modelo
-module.exports = destinationModel;
+module.exports = Destination;

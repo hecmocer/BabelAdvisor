@@ -7,22 +7,17 @@ var User = mongoose.model('User');
 router.get('/', function(req, res, next) {
     User.listAll(function(err, rows){
         if(err){
-            res.json({ result: false, err: err});
+            res.json({
+                result: false,
+                err: err
+            });
         }
         else{
-            if(rows.length === 0){
-                res.json({
-                    result: true,
-                    rows: rows,
-                    msg: 'Búsqueda sin resultados'
-                });
-            }
-            else{
-                res.json({
-                    result: true,
-                    rows: rows
-                });
-            }
+            res.json({
+                result: true,
+                count:rows.length,
+                rows: rows
+            });
         }
     });
 });
