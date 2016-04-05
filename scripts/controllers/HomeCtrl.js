@@ -8,7 +8,7 @@ angular.module("babeladvisor").controller("HomeCtrl", ["$scope", "APIClient", fu
         APIClient.getUserList().then(
         // Lista de peliculas encontradas
         function(data) {
-            $scope.model = data;
+            $scope.model = data.rows;
         },
         // Promesa rechazada
         function(error) {
