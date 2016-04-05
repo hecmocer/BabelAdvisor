@@ -7,6 +7,7 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var User = require('./models/user_model');
 var Destination = require('./models/destination_model');
+var Country = require('./models/country_model');
 
 // Función que devuelve promesa que borra usuarios
 function deleteUsers(){
@@ -36,6 +37,23 @@ function deleteDestinations(){
             }
             else{
                 console.log('Se han borrado los destinos');
+                resolve();
+            }
+        });
+    });
+}
+
+// Función que devuelve promesa que borra paises
+function deleteCountries(){
+    return new Promise( function(resolve, reject){
+        // Borramos destinos
+        Country.remove({}, function(err) {
+            if(err){
+                console.log('Error when trying to delete country', err);
+                reject(err);
+            }
+            else{
+                console.log('Se han borrado los paises');
                 resolve();
             }
         });
@@ -128,8 +146,51 @@ function insertSingleDestination(packageData, i, cb){
     }
 }
 
+// Función que devuelve promesa que inserta paises
+function insertCountries(){
+    return new Promise( function(resolve, reject){
+        // Leer fichero destinations e insertar paises
+        fs.readFile('./data/countries.json', {encoding: 'utf8'}, function(err, data) {
+            if(err){
+                console.log('Ha habido un error al leer el fichero countries: ', err);
+                reject(err);
+            }
+            else{
+                var packageData = JSON.parse(data);
+
+                // Inserta pais a pais y resuelve en el callback
+                insertSingleCountry(packageData, 0, function(){
+                    console.log('Se han insertado los paises');
+
+                });
+            }
+        });
+    });
+}
+
+// Inserta destino a destino y una vez acabado llama al callback (resolverá la promesa)
+function insertSingleCountry(packageData, i, cb){
+    // Condición de parada
+    if(i < packageData.countries.length){
+        var newCountry = new Country(packageData.countries[i]);
+
+        newCountry.save(function(err, new_row){
+            if(err){
+                console.log("No se pudo insertar el pais numero ", i);
+            }else{
+                console.log("Insertado pais numero ", i);
+                // Llamada a insertar siguiente pais
+                insertSingleCountry(packageData, i+1, cb)
+            }
+        });
+    }
+    else{
+        cb();
+    }
+}
+
 // Cadena de promesas que primero borra y luego reinserta. Por último imprime mensaje por pantalla y termina el proceso
-deleteUsers().then(deleteDestinations).then(insertUsers).then(insertDestinations).then(function(){
+deleteUsers().then(deleteDestinations).then(deleteCountries).then(insertUsers).then(insertDestinations).then(insertCountries).then(function(){
     process.exit();
 }).catch(function(err){
     console.error('Ha habido un problema en la ejecución');

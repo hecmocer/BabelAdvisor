@@ -11,11 +11,13 @@ var bodyParser = require('body-parser');
 // Se puede acceder a ellos mediante mongoose.model('<MODELO>')
 require('./models/user_model');
 require('./models/destination_model');
+require('./models/country_model');
 
 // Requerimos las rutas
 var index = require('./routes/api/v1/index');
 var users = require('./routes/api/v1/users');
 var destinations = require('./routes/api/v1/destinations');
+var countries = require('./routes/api/v1/countries');
 
 var app = express();
 
@@ -55,6 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/', index);
 app.use('/api/v1/users', users);
 app.use('/api/v1/destinations', destinations);
+app.use('/api/v1/countries', countries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
