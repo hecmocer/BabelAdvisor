@@ -44,7 +44,7 @@ router.get('/:id', function(req, res, next) {
             // Modificamos cada fila para que devuelva link
             for(let i = 0; i < rows.length; i++){
                 rows[i] = rows[i].toObject();
-                rows[i].sites = req.protocol + '://' + req.get('host') + '/api/v1/destinations/?c=' + rows[i].name;
+                rows[i].destinations = req.protocol + '://' + req.get('host') + '/api/v1/destinations/?c=' + rows[i].name;
                 rows[i].hotels = req.protocol + '://' + req.get('host') + '/api/v1/hotels/?c=' + rows[i].name;
                 rows[i].restaurants = req.protocol + '://' + req.get('host') + '/api/v1/restaurants/?c=' + rows[i].name;
             }
