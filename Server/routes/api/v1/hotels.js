@@ -5,7 +5,9 @@ var Hotel = mongoose.model('Hotel');
 
 // Petición GET
 router.get('/', function(req, res, next) {
-    Hotel.listAll(function(err, rows){
+    var countryParam = req.query.c || "";
+
+    Hotel.listAll(countryParam, function(err, rows){
         if(err){
             res.json({
                 result: false,

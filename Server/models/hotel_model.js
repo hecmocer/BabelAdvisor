@@ -17,9 +17,13 @@ var hotelSchema = mongoose.Schema({
 });
 
 // Añadimos función que devuelve todos los elementos
-hotelSchema.statics.listAll = function(cb){
+hotelSchema.statics.listAll = function(country, cb){
     // Preparamos la query sin ejecutarla
     var query = Hotel.find({});
+
+    if(country !== ""){
+        query.where('country').equals(country);
+    }
 
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){

@@ -17,9 +17,13 @@ var restaurantSchema = mongoose.Schema({
 });
 
 // Añadimos función que devuelve todos los elementos
-restaurantSchema.statics.listAll = function(cb){
+restaurantSchema.statics.listAll = function(country, cb){
     // Preparamos la query sin ejecutarla
     var query = Restaurant.find({});
+
+    if(country !== ""){
+        query.where('country').equals(country);
+    }
 
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){

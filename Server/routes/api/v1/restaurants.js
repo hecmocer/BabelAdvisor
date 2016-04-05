@@ -5,7 +5,9 @@ var Restaurant = mongoose.model('Restaurant');
 
 // Petición GET
 router.get('/', function(req, res, next) {
-    Restaurant.listAll(function(err, rows){
+    var countryParam = req.query.c || "";
+
+    Restaurant.listAll(countryParam, function(err, rows){
         if(err){
             res.json({
                 result: false,
