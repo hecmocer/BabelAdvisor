@@ -12,12 +12,16 @@ var bodyParser = require('body-parser');
 require('./models/user_model');
 require('./models/destination_model');
 require('./models/country_model');
+require('./models/hotel_model');
+require('./models/restaurant_model');
 
 // Requerimos las rutas
 var index = require('./routes/api/v1/index');
 var users = require('./routes/api/v1/users');
 var destinations = require('./routes/api/v1/destinations');
 var countries = require('./routes/api/v1/countries');
+var hotels = require('./routes/api/v1/hotels');
+var restaurants = require('./routes/api/v1/restaurants');
 
 var app = express();
 
@@ -58,6 +62,8 @@ app.use('/api/v1/', index);
 app.use('/api/v1/users', users);
 app.use('/api/v1/destinations', destinations);
 app.use('/api/v1/countries', countries);
+app.use('/api/v1/hotels', hotels);
+app.use('/api/v1/restaurants', restaurants);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,7 +4,7 @@
 var conn = require('../lib/connect_mongoose');
 var mongoose = require('mongoose');
 
-// Creamos el esquema de usuarios
+// Creamos el esquema de paises
 var countrySchema = mongoose.Schema({
     name: String,
     flag: String,

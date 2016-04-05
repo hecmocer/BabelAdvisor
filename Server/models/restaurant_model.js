@@ -4,26 +4,22 @@
 var conn = require('../lib/connect_mongoose');
 var mongoose = require('mongoose');
 
-// Creamos el esquema de destinos
-var destinationSchema = mongoose.Schema({
+// Creamos el esquema de restaurantes
+var restaurantSchema = mongoose.Schema({
     name: String,
     country: String,
-    picture_main: String,
-    picture_1: String,
-    picture_2: String,
-    picture_3: String,
+    picture: String,
     opinion: String,
-    price: String,
+    type: String,
+    url: String,
     upVotes: Number,
     downVotes: Number
 });
 
-// Añadimos función que devuelve todos los usuarios
-destinationSchema.statics.listAll = function(cb){
+// Añadimos función que devuelve todos los elementos
+restaurantSchema.statics.listAll = function(cb){
     // Preparamos la query sin ejecutarla
-    var query = Destination.find({});
-
-    query.select('name picture_main upVotes downVotes');
+    var query = Restaurant.find({});
 
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){
@@ -37,7 +33,7 @@ destinationSchema.statics.listAll = function(cb){
 };
 
 // Registramos el schema en mongoose
-var Destination = mongoose.model('Destination', destinationSchema);
+var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 // Exportamos el modelo
-module.exports = Destination;
+module.exports = Restaurant;

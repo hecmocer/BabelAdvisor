@@ -8,6 +8,8 @@ var mongoose = require('mongoose');
 var User = require('./models/user_model');
 var Destination = require('./models/destination_model');
 var Country = require('./models/country_model');
+var Hotel = require('./models/hotel_model');
+var Restaurant = require('./models/restaurant_model');
 
 // Función que devuelve promesa que borra usuarios
 function deleteUsers(){
@@ -46,7 +48,7 @@ function deleteDestinations(){
 // Función que devuelve promesa que borra paises
 function deleteCountries(){
     return new Promise( function(resolve, reject){
-        // Borramos destinos
+        // Borramos paises
         Country.remove({}, function(err) {
             if(err){
                 console.log('Error when trying to delete country', err);
@@ -54,6 +56,40 @@ function deleteCountries(){
             }
             else{
                 console.log('Se han borrado los paises');
+                resolve();
+            }
+        });
+    });
+}
+
+// Función que devuelve promesa que borra hoteles
+function deleteHotels(){
+    return new Promise( function(resolve, reject){
+        // Borramos hoteles
+        Hotel.remove({}, function(err) {
+            if(err){
+                console.log('Error when trying to delete hotel', err);
+                reject(err);
+            }
+            else{
+                console.log('Se han borrado los hoteles');
+                resolve();
+            }
+        });
+    });
+}
+
+// Función que devuelve promesa que borra restaurantes
+function deleteRestaurants(){
+    return new Promise( function(resolve, reject){
+        // Borramos restaurantes
+        Restaurant.remove({}, function(err) {
+            if(err){
+                console.log('Error when trying to delete restaurant', err);
+                reject(err);
+            }
+            else{
+                console.log('Se han borrado los restaurantes');
                 resolve();
             }
         });
@@ -86,9 +122,9 @@ function insertUsers(){
 function insertSingleUser(packageData, i, cb){
     // Condición de parada
     if(i < packageData.users.length){
-        var new_user = new User(packageData.users[i]);
+        var newUser = new User(packageData.users[i]);
 
-        new_user.save(function(err, new_row){
+        newUser.save(function(err, new_row){
             if(err){
                 console.log("No se pudo insertar el usuario numero ", i);
             }else{
@@ -149,7 +185,7 @@ function insertSingleDestination(packageData, i, cb){
 // Función que devuelve promesa que inserta paises
 function insertCountries(){
     return new Promise( function(resolve, reject){
-        // Leer fichero destinations e insertar paises
+        // Leer fichero countries e insertar paises
         fs.readFile('./data/countries.json', {encoding: 'utf8'}, function(err, data) {
             if(err){
                 console.log('Ha habido un error al leer el fichero countries: ', err);
@@ -161,14 +197,14 @@ function insertCountries(){
                 // Inserta pais a pais y resuelve en el callback
                 insertSingleCountry(packageData, 0, function(){
                     console.log('Se han insertado los paises');
-
+                    resolve();
                 });
             }
         });
     });
 }
 
-// Inserta destino a destino y una vez acabado llama al callback (resolverá la promesa)
+// Inserta elemento a elemento y una vez acabado llama al callback (resolverá la promesa)
 function insertSingleCountry(packageData, i, cb){
     // Condición de parada
     if(i < packageData.countries.length){
@@ -189,8 +225,104 @@ function insertSingleCountry(packageData, i, cb){
     }
 }
 
+// Función que devuelve promesa que inserta hoteles
+function insertHotels(){
+    return new Promise( function(resolve, reject){
+        // Leer fichero hotels e insertar hoteles
+        fs.readFile('./data/hotels.json', {encoding: 'utf8'}, function(err, data) {
+            if(err){
+                console.log('Ha habido un error al leer el fichero hotels: ', err);
+                reject(err);
+            }
+            else{
+                var packageData = JSON.parse(data);
+
+                // Inserta elemento a elemento y resuelve en el callback
+                insertSingleHotel(packageData, 0, function(){
+                    console.log('Se han insertado los hoteles');
+                    resolve();
+                });
+            }
+        });
+    });
+}
+
+// Inserta elemento a elemento y una vez acabado llama al callback (resolverá la promesa)
+function insertSingleHotel(packageData, i, cb){
+    // Condición de parada
+    if(i < packageData.hotels.length){
+        var newHotel = new Hotel(packageData.hotels[i]);
+
+        newHotel.save(function(err, new_row){
+            if(err){
+                console.log("No se pudo insertar el hotel numero ", i);
+            }else{
+                console.log("Insertado hotel numero ", i);
+                // Llamada a insertar siguiente elemento
+                insertSingleHotel(packageData, i+1, cb)
+            }
+        });
+    }
+    else{
+        cb();
+    }
+}
+
+// Función que devuelve promesa que inserta restaurantes
+function insertRestaurants(){
+    return new Promise( function(resolve, reject){
+        // Leer fichero restaurants e insertar restaurantes
+        fs.readFile('./data/restaurants.json', {encoding: 'utf8'}, function(err, data) {
+            if(err){
+                console.log('Ha habido un error al leer el fichero restaurants: ', err);
+                reject(err);
+            }
+            else{
+                var packageData = JSON.parse(data);
+
+                // Inserta elemento a elemento y resuelve en el callback
+                insertSingleRestaurant(packageData, 0, function(){
+                    console.log('Se han insertado los restaurantes');
+                    resolve();
+                });
+            }
+        });
+    });
+}
+
+// Inserta elemento a elemento y una vez acabado llama al callback (resolverá la promesa)
+function insertSingleRestaurant(packageData, i, cb){
+    // Condición de parada
+    if(i < packageData.restaurants.length){
+        var newRestaurant = new Restaurant(packageData.restaurants[i]);
+
+        newRestaurant.save(function(err, new_row){
+            if(err){
+                console.log("No se pudo insertar el restaurante numero ", i);
+            }else{
+                console.log("Insertado restaurante numero ", i);
+                // Llamada a insertar siguiente elemento
+                insertSingleRestaurant(packageData, i+1, cb)
+            }
+        });
+    }
+    else{
+        cb();
+    }
+}
+
 // Cadena de promesas que primero borra y luego reinserta. Por último imprime mensaje por pantalla y termina el proceso
-deleteUsers().then(deleteDestinations).then(deleteCountries).then(insertUsers).then(insertDestinations).then(insertCountries).then(function(){
+deleteUsers()
+.then(deleteDestinations)
+.then(deleteCountries)
+.then(deleteHotels)
+.then(deleteRestaurants)
+.then(insertUsers)
+.then(insertDestinations)
+.then(insertCountries)
+.then(insertHotels)
+.then(insertRestaurants)
+.then(function(){
     process.exit();
 }).catch(function(err){
     console.error('Ha habido un problema en la ejecución');

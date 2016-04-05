@@ -1,0 +1,34 @@
+{
+    "hotels": [
+    {
+        "name": "Hotel1",
+        "country": "España",
+        "picture": "",
+        "opinion": "Prueba 1",
+        "price": "bajo",
+        "url": "google.com",
+        "upVotes": 0,
+        "downVotes": 0
+    },
+    {
+        "name": "Hotel2",
+        "country": "Reino Unido",
+        "picture": "",
+        "opinion": "Prueba 2",
+        "price": "alto",
+        "url": "google.com",
+        "upVotes": 0,
+        "downVotes": 0
+    },
+    {
+        "name": "Hotel3",
+        "country": "Dinamarca",
+        "picture": "",
+        "opinion": "Prueba 3",
+        "price": "medio",
+        "url": "google.com",
+        "upVotes": 0,
+        "downVotes": 0
+    }
+]
+}
