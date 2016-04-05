@@ -17,6 +17,8 @@ countrySchema.statics.listAll = function(cb){
     // Preparamos la query sin ejecutarla
     var query = Country.find({});
 
+    query.select('name flag upVotes downVotes');
+
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){
         if(err){
@@ -27,6 +29,22 @@ countrySchema.statics.listAll = function(cb){
         }
     });
 };
+
+// Función que devuelve un único elemento y su información asociada
+countrySchema.statics.listElement = function(id, cb){
+    // Preparamos query sin ejecutarla
+    var query = Country.find({"_id": id});
+
+    // Ejecutamos la query y llamamos al callback
+    query.exec(function(err, rows){
+        if(err){
+            cb(err);
+        }
+        else{
+            cb(null, rows);
+        }
+    });
+}
 
 // Registramos el schema en mongoose
 var Country = mongoose.model('Country', countrySchema);

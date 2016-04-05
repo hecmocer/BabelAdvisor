@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
@@ -16,6 +18,32 @@ router.get('/', function(req, res, next) {
             res.json({
                 result: true,
                 count:rows.length,
+                rows: rows
+            });
+        }
+    });
+});
+
+// Petición GET :id
+router.get('/:id', function(req, res, next) {
+    Country.listElement(req.params.id, function(err, rows){
+        if(err){
+            res.json({
+                result: false,
+                err: err
+            });
+        }
+        else{
+            // Modificamos cada fila para que devuelva link
+            for(let i = 0; i < rows.length; i++){
+                rows[i] = rows[i].toObject();
+                rows[i].sites = req.protocol + '://' + req.get('host') + '/api/v1/destinations/?c=' + rows[i].name;
+                rows[i].hotels = req.protocol + '://' + req.get('host') + '/api/v1/hotels/?c=' + rows[i].name;
+                rows[i].restaurants = req.protocol + '://' + req.get('host') + '/api/v1/restaurants/?c=' + rows[i].name;
+            }
+
+            res.json({
+                result: true,
                 rows: rows
             });
         }
