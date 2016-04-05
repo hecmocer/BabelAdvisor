@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
@@ -15,6 +17,13 @@ router.get('/', function(req, res, next) {
             });
         }
         else{
+
+            // Modificamos cada fila para que devuelva link
+            for(let i = 0; i < rows.length; i++){
+                rows[i] = rows[i].toObject();
+                rows[i].link = "http://localhost:8000/#/hotels/" + rows[i]._id;
+            }
+
             res.json({
                 result: true,
                 count:rows.length,

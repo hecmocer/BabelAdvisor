@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
             // Modificamos cada fila para que devuelva link
             for(let i = 0; i < rows.length; i++){
                 rows[i] = rows[i].toObject();
-                rows[i].link = req.protocol + '://' + req.get('host') + '/api/v1/countries/' + rows[i]._id;
+                rows[i].link = "http://localhost:8000/#/countries/" + rows[i]._id;
             }
 
             res.json({
