@@ -1,0 +1,38 @@
+<div ng-controller="DestinationsCtrl">
+    <h1>destinations</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Portada</th>
+                <th>Votos positivos</th>
+                <th>Votos negativos</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model">
+                <td>
+                    {{::item.name }}
+                </td>
+                <td>
+                    {{::item.country}}
+                </td>
+                <td>
+                    <img ng-src="{{::item.picture_main }}" alt="imagenPortada" style="width: 200px">
+                </td>
+                <td>
+                    {{::item.upVotes }}
+                </td>
+                <td>
+                    {{::item.downVotes }}
+                </td>
+                <td>
+                    <a href="{{::item.link }}">VER</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

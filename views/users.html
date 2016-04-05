@@ -1,0 +1,22 @@
+<div ng-controller="UsersCtrl">
+    <h1>users</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre de usuario</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model">
+                <td>
+                    {{::item.name }}
+                </td>
+                <td>
+                    {{::item.email }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

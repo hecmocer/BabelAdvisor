@@ -1,0 +1,34 @@
+<div ng-controller="CountriesCtrl">
+    <h1>countries</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Bandera</th>
+                <th>Votos positivos</th>
+                <th>Votos negativos</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model">
+                <td>
+                    {{::item.name }}
+                </td>
+                <td>
+                    <img ng-src="{{::item.flag }}" alt="bandera" style="width: 100px">
+                </td>
+                <td>
+                    {{::item.upVotes }}
+                </td>
+                <td>
+                    {{::item.downVotes }}
+                </td>
+                <td>
+                    <a href="{{::item.link }}">VER</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
