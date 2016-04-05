@@ -25,6 +25,8 @@ restaurantSchema.statics.listAll = function(country, cb){
         query.where('country').equals(country);
     }
 
+    query.select('name country picture type upVotes downVotes');
+
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){
         if(err){
