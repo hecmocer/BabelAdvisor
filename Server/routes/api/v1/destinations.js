@@ -5,7 +5,9 @@ var Destination = mongoose.model('Destination');
 
 // Petición GET
 router.get('/', function(req, res, next) {
-    Destination.listAll(function(err, rows){
+    var countryParam = req.query.c || "";
+
+    Destination.listAll(countryParam, function(err, rows){
         if(err){
             res.json({
                 result: false,

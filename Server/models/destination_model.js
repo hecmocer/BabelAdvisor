@@ -19,11 +19,15 @@ var destinationSchema = mongoose.Schema({
 });
 
 // Añadimos función que devuelve todos los usuarios
-destinationSchema.statics.listAll = function(cb){
+destinationSchema.statics.listAll = function(country, cb){
     // Preparamos la query sin ejecutarla
     var query = Destination.find({});
 
-    query.select('name picture_main upVotes downVotes');
+    if(country !== ""){
+        query.where('country').equals(country);
+    }
+
+    query.select('name country picture_main upVotes downVotes');
 
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){
