@@ -8,7 +8,7 @@ angular.module("babeladvisor").controller("RestaurantDetailCtrl",
         APIClient.getRestaurantDetail($routeParams.id).then(
             // Elemento encontrado
             function(restaurant) {
-                $scope.model = restaurant;
+                $scope.model = restaurant.rows;
             },
             // Elemento no encontrado
             function(error) {

@@ -1,6 +1,6 @@
 angular.module("babeladvisor").controller("DestinationDetailCtrl",
-    ["$scope", "$routeParams", "$location", "APIClient",
-    function($scope, $routeParams, $location, APIClient){
+    ["$scope", "$routeParams", "$location", "APIClient", "paths",
+    function($scope, $routeParams, $location, APIClient, paths){
 
         $scope.model = {}
 
@@ -8,7 +8,7 @@ angular.module("babeladvisor").controller("DestinationDetailCtrl",
         APIClient.getDestinationDetail($routeParams.id).then(
             // Elemento encontrado
             function(destination) {
-                $scope.model = destination;
+                $scope.model = destination.rows;
             },
             // Elemento no encontrado
             function(error) {

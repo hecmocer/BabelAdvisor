@@ -8,7 +8,7 @@ angular.module("babeladvisor").controller("HotelDetailCtrl",
         APIClient.getHotelDetail($routeParams.id).then(
             // Elemento encontrado
             function(hotel) {
-                $scope.model = hotel;
+                $scope.model = hotel.rows;
             },
             // Elemento no encontrado
             function(error) {

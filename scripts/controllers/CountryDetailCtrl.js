@@ -8,12 +8,10 @@ angular.module("babeladvisor").controller("CountryDetailCtrl",
         APIClient.getCountryDetail($routeParams.id).then(
             // País encontrado
             function(country) {
-                console.log("pais encontrado");
-                $scope.model = country;
+                $scope.model = country.rows;
             },
             // País no encontrado
             function(error) {
-                console.log("pais no encontrado");
                 $location.url(paths.error);
             }
         );
