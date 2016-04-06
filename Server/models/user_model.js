@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 // Creamos el esquema de usuarios
 var userSchema = mongoose.Schema({
+    profile_picture: String,
     name: String,
     email: String,
     pwd: String
@@ -16,7 +17,7 @@ userSchema.statics.listAll = function(cb){
     // Preparamos la query sin ejecutarla
     var query = User.find({});
 
-    query.select('name email');
+    query.select('profile_picture name email');
 
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){

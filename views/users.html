@@ -4,12 +4,16 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>Imagen de perfil</th>
                 <th>Nombre de usuario</th>
                 <th>Email</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="item in model">
+                <td>
+                    <img ng-src="{{::item.profile_picture }}" alt="profilePicture" style="width: 50px">
+                </td>
                 <td>
                     {{::item.name }}
                 </td>
