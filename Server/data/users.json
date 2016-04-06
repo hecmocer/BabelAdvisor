@@ -1,14 +1,16 @@
 {
     "users": [
     {
+        "profile_picture": "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
         "name": "Admin",
         "email": "Admin@gmail.com",
         "pwd": "logmepls"
     },
     {
-            "name": "h4ck3r",
-            "email": "hck@hotmail.com",
-            "pwd": "allyourpwdarebelongtome"
+        "profile_picture": "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+        "name": "h4ck3r",
+        "email": "hck@hotmail.com",
+        "pwd": "allyourpwdarebelongtome"
     }
     ]
 }
