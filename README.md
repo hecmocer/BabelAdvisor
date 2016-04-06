@@ -21,6 +21,15 @@ Ejecutar sobre la carpeta Server: 'npm start' o mejor 'nodemon'
 Ejecutar sobre la carpeta Server: mongod_BabelAdvisor
     Entonces se iniciará una base de datos mongo en la ruta: C:\Program Files\MongoDB\Server\3.2\data\BabelAdvisorDB
 
+Ejecutar sobre la carpeta raiz: 'python -m SimpleHTTPServer'
+    Entonces al abrir un navegador y acceder a la url localhost:8000
+    tendremos la aplicación disponible
+
+# Para desarrollo:
+Ejecutar en la carpeta raiz: 'grunt'
+    Esto compilará los archivos .js y .less para crear el código final
+
+# Para reinstalar la base de datos:
 Ejecutar sobre la carpeta Server: node install_db.js
     Entonces se borrará la base de datos y se cargarán los usuarios y destinos especificados de la carpeta data
 
