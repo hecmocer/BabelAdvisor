@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
 
 // Petición GET :id
 router.get('/:id', function(req, res, next) {
-    Country.listElement(req.params.id, function(err, rows){
+    Country.listElement(req.params.id, function(err, row){
         if(err){
             res.json({
                 result: false,
@@ -41,17 +41,15 @@ router.get('/:id', function(req, res, next) {
             });
         }
         else{
-            // Modificamos cada fila para que devuelva link
-            for(let i = 0; i < rows.length; i++){
-                rows[i] = rows[i].toObject();
-                rows[i].destinations = "http://localhost:8000/#/destinations/?c=" + rows[i].name;
-                rows[i].hotels = "http://localhost:8000/#/hotels/?c=" + rows[i].name;
-                rows[i].restaurants = "http://localhost:8000/#/restaurants/?c=" + rows[i].name;
-            }
+            // Modificamos el elemento para que devuelva link
+            row = row.toObject();
+            row.destinations = "http://localhost:8000/#/destinations/?c=" + row.name;
+            row.hotels = "http://localhost:8000/#/hotels/?c=" + row.name;
+            row.restaurants = "http://localhost:8000/#/restaurants/?c=" + row.name;
 
             res.json({
                 result: true,
-                rows: rows
+                row: row
             });
         }
     });
@@ -71,6 +69,46 @@ router.post('/', function(req, res){
             res.json( { result: true, insertedElement: newRow } );
         }
     })
+});
+
+// Petición PUT
+router.put('/:id', function(req, res){
+    // Obtenemos el elemento a modificar
+    Country.listElement(req.params.id, function(err, row){
+        if(err){
+            res.json({
+                result: false,
+                err: err
+            });
+        }
+        else{
+
+            var data_to_put = {};
+
+            // Actualizamos los campos del objeto en memoria
+            if(req.body.vote === true){
+                row.upVotes++;
+                data_to_put.upVotes = row.upVotes;
+            }
+            if(req.body.vote === false){
+                row.downVotes++;
+                data_to_put.downVotes = row.downVotes;
+            }
+
+            // Actualizamos dicho objeto en la base de datos
+            Country.update(
+                { _id: req.params.id},
+                {$set: data_to_put},
+                function(err, data){
+                    if(err){
+                        res.json({ result: false, error: err});
+                    }
+                    else{
+                        res.json({ result: true, info: data, row: row});
+                    }
+                });
+        }
+    });
 });
 
 // Petición DELETE

@@ -8,7 +8,7 @@ angular.module("babeladvisor").controller("RestaurantDetailCtrl",
         APIClient.getRestaurantDetail($routeParams.id).then(
             // Elemento encontrado
             function(restaurant) {
-                $scope.model = restaurant.rows;
+                $scope.model = restaurant.row;
             },
             // Elemento no encontrado
             function(error) {
@@ -16,4 +16,29 @@ angular.module("babeladvisor").controller("RestaurantDetailCtrl",
             }
         );
 
+        $scope.upVote = function(){
+            APIClient.voteRestaurant($scope.model._id, true).then(
+            // Voto correcto
+            function(result){
+                $scope.model = result.row;
+            },
+            // Voto incorrecto
+            function(error){
+                $location.url(paths.error);
+            }
+            );
+        }
+
+        $scope.downVote = function(){
+            APIClient.voteRestaurant($scope.model._id, false).then(
+            // Voto correcto
+            function(result){
+                $scope.model = result.row;
+            },
+            // Voto incorrecto
+            function(error){
+                $location.url(paths.error);
+            }
+            );
+        }
     }])

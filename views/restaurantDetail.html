@@ -1,6 +1,9 @@
 <div ng-controller="RestaurantDetailCtrl">
     <h1>detalle restaurante</h1>
 
+    <button type="button" class="btn btn-default" ng-click="upVote()">UpVote</button>
+    <button type="button" class="btn btn-default" ng-click="downVote()">DownVote</button>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -15,30 +18,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in model">
                 <td>
-                    {{::item.name }}
+                    {{::model.name }}
                 </td>
                 <td>
-                    {{::item.country }}
+                    {{::model.country }}
                 </td>
                 <td>
-                    <img ng-src="{{::item.picture }}" alt="img" style="width: 100px">
+                    <img ng-src="{{::model.picture }}" alt="img" style="width: 100px">
                 </td>
                 <td>
-                    {{::item.opinion }}
+                    {{::model.opinion }}
                 </td>
                 <td>
-                    {{::item.type }}
+                    {{::model.type }}
                 </td>
                 <td>
-                    <a href="{{::item.url }}">Más info</a>
+                    <a href="{{::model.url }}">Más info</a>
                 </td>
                 <td>
-                    {{::item.upVotes }}
+                    {{ model.upVotes }}
                 </td>
                 <td>
-                    {{::item.downVotes }}
+                    {{ model.downVotes }}
                 </td>
             </tr>
         </tbody>

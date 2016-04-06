@@ -49,7 +49,7 @@ hotelSchema.statics.listElement = function(id, cb){
             cb(err);
         }
         else{
-            cb(null, rows);
+            cb(null, rows[0]);
         }
     });
 }

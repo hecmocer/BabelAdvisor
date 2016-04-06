@@ -1,6 +1,9 @@
 <div ng-controller="CountryDetailCtrl">
     <h1>detalle pais</h1>
 
+    <button type="button" class="btn btn-default" ng-click="upVote()">UpVote</button>
+    <button type="button" class="btn btn-default" ng-click="downVote()">DownVote</button>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,27 +17,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in model">
                 <td>
-                    {{::item.name }}
+                    {{::model.name }}
                 </td>
                 <td>
-                    <img ng-src="{{::item.flag }}" alt="bandera" style="width: 100px">
+                    <img ng-src="{{::model.flag }}" alt="bandera" style="width: 100px">
                 </td>
                 <td>
-                    {{::item.upVotes }}
+                    {{ model.upVotes }}
                 </td>
                 <td>
-                    {{::item.downVotes }}
+                    {{ model.downVotes }}
                 </td>
                 <td>
-                    <a href="{{::item.destinations }}">Destinos</a>
+                    <a href="{{::model.destinations }}">Destinos</a>
                 </td>
                 <td>
-                    <a href="{{::item.hotels }}">Hoteles</a>
+                    <a href="{{::model.hotels }}">Hoteles</a>
                 </td>
                 <td>
-                    <a href="{{::item.restaurants }}">Restaurantes</a>
+                    <a href="{{::model.restaurants }}">Restaurantes</a>
                 </td>
             </tr>
         </tbody>

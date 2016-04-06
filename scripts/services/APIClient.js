@@ -29,8 +29,10 @@ angular.module("babeladvisor").service("APIClient",
         };
 
         // Petición POST al API en la url y con los datos para crear pasados como parámetro
-        this.apiPostRequest = function(url, data_to_post){
+        this.apiPostRequest = function(uri, data_to_post){
             console.log("POST", data_to_post);
+
+            var url = "http://localhost:3000/" + uri;
 
             // Crear el objeto diferido
             var deferred = $q.defer();
@@ -53,8 +55,10 @@ angular.module("babeladvisor").service("APIClient",
         };
 
         // Petición PUT al API en la url con los datos para modifical pasados como parámetro
-        this.apiPutRequest = function(url, data_to_put){
-            console.log("PUT", data_to_put);
+        this.apiPutRequest = function(uri, data_to_put){
+            console.log("PUT", uri, data_to_put);
+
+            var url = "http://localhost:3000/" + uri;
 
             // Crear el objeto diferido
             var deferred = $q.defer();
@@ -136,14 +140,26 @@ angular.module("babeladvisor").service("APIClient",
             return this.apiGetRequest(url);
         }
 
-        this.upVote = function(obj){
-            obj.upVotes++;
-            return obj;
+        this.voteCountry = function(id, bool){
+            var data_to_put = {};
+            data_to_put.vote = bool;
+            return this.apiPutRequest(apiPaths.countries + id, data_to_put);
         }
 
-        this.downVote = function(obj){
-            obj.downVotes++;
-            return obj;
+        this.voteDestination = function(id, bool){
+            var data_to_put = {};
+            data_to_put.vote = bool;
+            return this.apiPutRequest(apiPaths.destinations + id, data_to_put);
+        }
+        this.voteHotel = function(id, bool){
+            var data_to_put = {};
+            data_to_put.vote = bool;
+            return this.apiPutRequest(apiPaths.hotels + id, data_to_put);
+        }
+        this.voteRestaurant = function(id, bool){
+            var data_to_put = {};
+            data_to_put.vote = bool;
+            return this.apiPutRequest(apiPaths.restaurants + id, data_to_put);
         }
 
     }
