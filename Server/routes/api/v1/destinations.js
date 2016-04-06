@@ -33,6 +33,24 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// Petición GET :id
+router.get('/:id', function(req, res, next) {
+    Destination.listElement(req.params.id, function(err, rows){
+        if(err){
+            res.json({
+                result: false,
+                err: err
+            });
+        }
+        else{
+            res.json({
+                result: true,
+                rows: rows
+            });
+        }
+    });
+});
+
 // Petición POST
 router.post('/', function(req, res){
     // Creamos un objeto con lo que nos pasen en el cuerpo de la petición
