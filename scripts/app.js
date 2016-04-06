@@ -15,14 +15,20 @@ angular.module("babeladvisor", ["ngRoute", "ngSanitize"]).config(
             templateUrl: "views/countryDetail.html"
         }).when(paths.destinations, {
             templateUrl: "views/destinations.html"
+        }).when(paths.destinationNew, {
+            templateUrl: "views/DestinationNew.html"
         }).when(paths.destinationDetail, {
             templateUrl: "views/destinationDetail.html"
         }).when(paths.hotels, {
             templateUrl: "views/hotels.html"
+        }).when(paths.hotelNew, {
+            templateUrl: "views/hotelNew.html"
         }).when(paths.hotelDetail, {
             templateUrl: "views/hotelDetail.html"
         }).when(paths.restaurants, {
             templateUrl: "views/restaurants.html"
+        }).when(paths.restaurantNew, {
+            templateUrl: "views/RestaurantNew.html"
         }).when(paths.restaurantDetail, {
             templateUrl: "views/restaurantDetail.html"
         }).when(paths.error, {
