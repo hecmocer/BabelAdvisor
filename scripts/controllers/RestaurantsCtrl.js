@@ -1,11 +1,13 @@
-angular.module("babeladvisor").controller("RestaurantsCtrl", ["$scope", "APIClient", function($scope, APIClient) {
+angular.module("babeladvisor").controller("RestaurantsCtrl", ["$scope", "$location", "APIClient", function($scope, $location, APIClient) {
 
     // model init
     $scope.model = {};
     getRestaurants();
 
     function getRestaurants () {
-        APIClient.getRestaurantList().then(
+        paramC = $location.search().c || "";
+
+        APIClient.getRestaurantList(paramC).then(
         // Lista de restaurantes encontrados
         function(data) {
             $scope.model = data.rows;

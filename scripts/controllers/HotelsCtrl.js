@@ -1,11 +1,13 @@
-angular.module("babeladvisor").controller("HotelsCtrl", ["$scope", "APIClient", function($scope, APIClient) {
+angular.module("babeladvisor").controller("HotelsCtrl", ["$scope", "$location", "APIClient", function($scope, $location, APIClient) {
 
     // model init
     $scope.model = {};
     getHotels();
 
     function getHotels () {
-        APIClient.getHotelList().then(
+        paramC = $location.search().c || "";
+
+        APIClient.getHotelList(paramC).then(
         // Lista de hoteles encontrados
         function(data) {
             $scope.model = data.rows;

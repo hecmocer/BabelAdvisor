@@ -1,11 +1,13 @@
-angular.module("babeladvisor").controller("DestinationsCtrl", ["$scope", "APIClient", function($scope, APIClient) {
+angular.module("babeladvisor").controller("DestinationsCtrl", ["$scope", "$location", "APIClient", function($scope, $location, APIClient) {
 
     // model init
     $scope.model = {};
     getDestinations();
 
     function getDestinations () {
-        APIClient.getDestinationList().then(
+        paramC = $location.search().c || "";
+
+        APIClient.getDestinationList(paramC).then(
         // Lista de destinos encontrados
         function(data) {
             $scope.model = data.rows;
