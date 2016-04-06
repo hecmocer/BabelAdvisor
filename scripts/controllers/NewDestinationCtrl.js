@@ -2,14 +2,7 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
     ["$scope", "APIClient", function($scope, APIClient){
 
         // Scope init
-        $scope.model = {
-            "name": "Londreasdascasascascascs",
-            "country": "Reino Unido",
-            "picture_main": "http://cdn.ek.aero/english/images/London-1_tcm233-2111842.jpg",
-            "upVotes": 102,
-            "downVotes": 3,
-            "link": "http://localhost:8000/#/destinations/5704e341b40041e40411ae2c"
-        };
+        $scope.model = {};
         $scope.percent_progress_ok = 0;
         $scope.successMessage = null;
         $scope.errorMessage = null;
@@ -22,19 +15,19 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
             }
         };
 
-        // $scope.$watch('movieForm.title.$valid', function(newValue, oldValue) {
+        $scope.$watch('destinationForm.name.$valid', function(newValue, oldValue) {
+             updateFieldValidation(newValue, oldValue);
+        });
+         $scope.$watch('destinationForm.picture_main.$valid', function(newValue, oldValue) {
+             updateFieldValidation(newValue, oldValue);
+         });
+        // $scope.$watch('destinationForm.video_url.$valid', function(newValue, oldValue) {
         //     updateFieldValidation(newValue, oldValue);
         // });
-        // $scope.$watch('movieForm.cover.$valid', function(newValue, oldValue) {
+        // $scope.$watch('destinationForm.release_date.$valid', function(newValue, oldValue) {
         //     updateFieldValidation(newValue, oldValue);
         // });
-        // $scope.$watch('movieForm.video_url.$valid', function(newValue, oldValue) {
-        //     updateFieldValidation(newValue, oldValue);
-        // });
-        // $scope.$watch('movieForm.release_date.$valid', function(newValue, oldValue) {
-        //     updateFieldValidation(newValue, oldValue);
-        // });
-        // $scope.$watch('movieForm.rating.$valid', function(newValue, oldValue) {
+        // $scope.$watch('destinationForm.rating.$valid', function(newValue, oldValue) {
         //     updateFieldValidation(newValue, oldValue);
         // });
 

@@ -7,6 +7,36 @@
 
     <form name="destinationForm" class="form-horizontal" novalidate ng-submit="destinationForm.$valid && saveForm()">
 
+        <div class="form-group" ng-class="
+        { 'has-success': destinationForm.name.$valid
+        && destinationForm.name.$dirty,
+        'has-error': destinationForm.name.$invalid
+        && destinationForm.name.$dirty }">
+            <label for="name" class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-9">
+                <input type="text" name="name" class="form-control" ng-model="model.name" required>
+            </div>
+            <div class="col-sm-1">
+                <span class="glyphicon" ng-class="
+                { 'glyphicon-ok green_class': destinationForm.name.$valid
+                && destinationForm.name.$dirty,
+                'glyphicon-remove red_class': destinationForm.name.$invalid
+                && destinationForm.name.$dirty ,
+                'glyphicon-pencil': destinationForm.name.$pristine }"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group" ng-class="{ 'has-success': destinationForm.picture_main.$valid && destinationForm.picture_main.$dirty, 'has-error': destinationForm.picture_main.$invalid && destinationForm.picture_main.$dirty }">
+            <label for="picture_main" class="col-sm-2 control-label">Carátula</label>
+            <div class="col-sm-9">
+                <input type="url" name="picture_main" placeholder="http://" class="form-control" ng-model="model.picture_main" required>
+            </div>
+            <div class="col-sm-1">
+                <span class="glyphicon margin_top_class" ng-class="{ 'glyphicon-ok green_class': destinationForm.picture_main.$valid && destinationForm.picture_main.$dirty, 'glyphicon-remove red_class': destinationForm.picture_main.$invalid && destinationForm.picture_main.$dirty, 'glyphicon-pencil': destinationForm.picture_main.$pristine }"></span>
+            </div>
+        </div>
+
 
 
 
