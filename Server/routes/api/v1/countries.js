@@ -55,22 +55,6 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-// Petición POST
-router.post('/', function(req, res){
-    // Creamos un objeto con lo que nos pasen en el cuerpo de la petición
-    var country = new Country(req.body);
-
-    // Insertamos dicho objeto. Mongoose se encargará de comprobar si concuerdan los campos
-    country.save(function(err, newRow){
-        if(err){
-            res.json( { result: false, error: err } );
-        }
-        else{
-            res.json( { result: true, insertedElement: newRow } );
-        }
-    })
-});
-
 // Petición PUT
 router.put('/:id', function(req, res){
     // Obtenemos el elemento a modificar

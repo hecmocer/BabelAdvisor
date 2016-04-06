@@ -30,7 +30,7 @@ angular.module("babeladvisor").service("APIClient",
 
         // Petición POST al API en la url y con los datos para crear pasados como parámetro
         this.apiPostRequest = function(uri, data_to_post){
-            console.log("POST", data_to_post);
+            console.log("POST", uri, data_to_post);
 
             var url = "http://localhost:3000/" + uri;
 
@@ -160,6 +160,10 @@ angular.module("babeladvisor").service("APIClient",
             var data_to_put = {};
             data_to_put.vote = bool;
             return this.apiPutRequest(apiPaths.restaurants + id, data_to_put);
+        }
+
+        this.createDestination = function(destination){
+            return this.apiPostRequest(apiPaths.destinations, destination);
         }
 
     }

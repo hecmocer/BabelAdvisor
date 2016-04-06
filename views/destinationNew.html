@@ -1,1 +1,28 @@
-<h1>Nuevo Destino</h1>
+<div ng-controller="NewDestinationCtrl">
+    <h1>Nuevo Destino</h1>
+    <br>
+
+    <div class="alert alert-success" ng-show="successMessage" ng-bind-html="successMessage"></div>
+    <div class="alert alert-error" ng-show="errorMessage" ng-bind-html="errorMessage"></div>
+
+    <form name="destinationForm" class="form-horizontal" novalidate ng-submit="destinationForm.$valid && saveForm()">
+
+
+
+
+
+
+
+
+
+        <div class="col-sm-10">
+            <div class="progress margin_top_class">
+                <div class="progress-bar progress-bar-success progress-bar-striped" style="width: {{percent_progress_ok}}%"></div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary pull-right" type="submit" ng-disabled="destinationForm.$invalid">Crear Destino!</button>
+        </div>
+    </form>
+
+</div>
