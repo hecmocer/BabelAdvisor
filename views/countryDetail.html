@@ -1,5 +1,42 @@
 <div ng-controller="CountryDetailCtrl">
     <h1>detalle pais</h1>
 
-    {{model | json}}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Bandera</th>
+                <th>Votos positivos</th>
+                <th>Votos negativos</th>
+                <th>Destinos</th>
+                <th>Hoteles</th>
+                <th>Restaurantes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model">
+                <td>
+                    {{::item.name }}
+                </td>
+                <td>
+                    <img ng-src="{{::item.flag }}" alt="bandera" style="width: 100px">
+                </td>
+                <td>
+                    {{::item.upVotes }}
+                </td>
+                <td>
+                    {{::item.downVotes }}
+                </td>
+                <td>
+                    <a href="{{::item.destinations }}">Destinos</a>
+                </td>
+                <td>
+                    <a href="{{::item.hotels }}">Hoteles</a>
+                </td>
+                <td>
+                    <a href="{{::item.restaurants }}">Restaurantes</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -1,5 +1,54 @@
 <div ng-controller="DestinationDetailCtrl">
     <h1>detalle destino</h1>
 
-    {{model | json}}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Imagen principal</th>
+                <th>Imagen 1</th>
+                <th>Imagen 2</th>
+                <th>Imagen 3</th>
+                <th>Opinión</th>
+                <th>Precio</th>
+                <th>Votos positivos</th>
+                <th>Votos negativos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model">
+                <td>
+                    {{::item.name }}
+                </td>
+                <td>
+                    {{::item.country }}
+                </td>
+                <td>
+                    <img ng-src="{{::item.picture_main }}" alt="img_main" style="width: 100px">
+                </td>
+                <td>
+                    <img ng-src="{{::item.picture_1 }}" alt="img_1" style="width: 100px">
+                </td>
+                <td>
+                    <img ng-src="{{::item.picture_2 }}" alt="img_2" style="width: 100px">
+                </td>
+                <td>
+                    <img ng-src="{{::item.picture_3 }}" alt="img_3" style="width: 100px">
+                </td>
+                <td>
+                    {{::item.opinion }}
+                </td>
+                <td>
+                    {{::item.price }}
+                </td>
+                <td>
+                    {{::item.upVotes }}
+                </td>
+                <td>
+                    {{::item.downVotes }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
