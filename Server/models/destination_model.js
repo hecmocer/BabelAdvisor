@@ -40,6 +40,22 @@ destinationSchema.statics.listAll = function(country, cb){
     });
 };
 
+// Función que devuelve un único elemento y su información asociada
+destinationSchema.statics.listElement = function(id, cb){
+    // Preparamos query sin ejecutarla
+    var query = Destination.find({"_id": id});
+
+    // Ejecutamos la query y llamamos al callback
+    query.exec(function(err, rows){
+        if(err){
+            cb(err);
+        }
+        else{
+            cb(null, rows);
+        }
+    });
+}
+
 // Registramos el schema en mongoose
 var Destination = mongoose.model('Destination', destinationSchema);
 
