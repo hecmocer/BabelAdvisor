@@ -163,6 +163,8 @@ angular.module("babeladvisor").service("APIClient",
         }
 
         this.createDestination = function(destination){
+            destination.upVotes = 0;
+            destination.downVotes = 0;
             return this.apiPostRequest(apiPaths.destinations, destination);
         }
 

@@ -3,40 +3,29 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
 
         // Scope init
         $scope.model = {};
-        $scope.percent_progress_ok = 0;
+        $scope.countries = [];
+        $scope.formCountry = "";
+        $scope.validCountry = false;
+        $scope.invalidCountry = true;
         $scope.successMessage = null;
         $scope.errorMessage = null;
+        getCountries();
 
-        updateFieldValidation = function(newValue, oldValue){
-            if(newValue){
-                $scope.percent_progress_ok += 20;
-            }else{
-                $scope.percent_progress_ok -= 20;
-            }
-        };
-
-        $scope.$watch('destinationForm.name.$valid', function(newValue, oldValue) {
-             updateFieldValidation(newValue, oldValue);
+        $scope.$watch('destinationForm.country.$modelValue', function(newValue, oldValue) {
+            $scope.formCountry = newValue;
+            $scope.validCountry = $scope.checkValidCountry();
+            $scope.invalidCountry = !$scope.validCountry;
         });
-         $scope.$watch('destinationForm.picture_main.$valid', function(newValue, oldValue) {
-             updateFieldValidation(newValue, oldValue);
-         });
-        // $scope.$watch('destinationForm.video_url.$valid', function(newValue, oldValue) {
-        //     updateFieldValidation(newValue, oldValue);
-        // });
-        // $scope.$watch('destinationForm.release_date.$valid', function(newValue, oldValue) {
-        //     updateFieldValidation(newValue, oldValue);
-        // });
-        // $scope.$watch('destinationForm.rating.$valid', function(newValue, oldValue) {
-        //     updateFieldValidation(newValue, oldValue);
-        // });
 
         // Scope methods
         $scope.saveForm = function(){
             APIClient.createDestination($scope.model).then(
                 function(destination){
                     $scope.successMessage = "destination saved! <a href='#/destinations/" + destination.insertedElement._id + "'>View new destination detail</a>";
-                    //$scope.model = {};
+                    $scope.model = {};
+                    $scope.formCountry = "";
+                    $scope.validCountry = false;
+                    $scope.invalidCountry = true;
                     $scope.destinationForm.$setPristine();
                 },
                 function(error){
@@ -44,6 +33,33 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
                 }
                 );
         };
+
+        $scope.checkValidCountry = function(){
+            var valid = false;
+
+            for (var i = 0; i < $scope.countries.length && !valid; i++){
+                if ($scope.countries[i] === $scope.formCountry){
+                    valid = true;
+                }
+            }
+
+            return valid;
+        }
+
+        function getCountries (){
+            APIClient.getCountryList().then(
+            // Lista de paises encontrados
+            function(data) {
+                for (var i = 0; i < data.rows.length; i++){
+                    $scope.countries[i] = data.rows[i].name;
+                }
+            },
+            // Promesa rechazada
+            function(error) {
+                console.error("Error al cargar paises");
+                //$scope.uiState = 'error';
+            });
+        }
 
     }]
     );
