@@ -8,7 +8,6 @@
         "picture_2": null,
         "picture_3": null,
         "opinion": "Siempre está nublado.",
-        "price": "alto",
         "upVotes": 102,
         "downVotes": 3
     },
@@ -20,7 +19,6 @@
         "picture_2": "https://www.hotel-bb.es/data/images/1/3/2/02_madrid.jpg",
         "picture_3": "https://cdn.civitatis.com/guias/madrid/fotos/torres-futuro-madrid.jpg",
         "opinion": "Comida y gente excepcional",
-        "price": "Bajo",
         "upVotes": 2096,
         "downVotes": 0
     },
@@ -32,7 +30,6 @@
         "picture_2": null,
         "picture_3": null,
         "opinion": "Una ciudad inolvidable",
-        "price": "Medio",
         "upVotes": 54,
         "downVotes": 33
     }

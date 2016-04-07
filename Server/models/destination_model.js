@@ -13,7 +13,6 @@ var destinationSchema = mongoose.Schema({
     picture_2: String,
     picture_3: String,
     opinion: String,
-    price: String,
     upVotes: Number,
     downVotes: Number
 });
