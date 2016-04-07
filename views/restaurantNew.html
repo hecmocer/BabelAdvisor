@@ -1,1 +1,145 @@
-<h1>Nuevo Restaurante</h1>
+<div ng-controller="NewRestaurantCtrl">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h1>Nuevo Restaurante</h1>
+        <br>
+
+        <div class="alert alert-success" ng-show="successMessage" ng-bind-html="successMessage"></div>
+        <div class="alert alert-error" ng-show="errorMessage" ng-bind-html="errorMessage"></div>
+
+        <form name="restaurantForm" class="form-horizontal" novalidate ng-submit="restaurantForm.$valid && validCountry && saveForm()">
+
+            <div class="form-group" ng-class="
+            { 'has-success': restaurantForm.name.$valid
+            && restaurantForm.name.$dirty,
+            'has-error': restaurantForm.name.$invalid
+            && restaurantForm.name.$dirty }">
+                <label for="name" class="col-sm-2 control-label">Nombre</label>
+                <div class="col-sm-9 col-xs-11">
+                    <input type="text" name="name" class="form-control" ng-model="model.name" required autofocus>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': restaurantForm.name.$valid
+                    && restaurantForm.name.$dirty,
+                    'glyphicon-remove red_class': restaurantForm.name.$invalid
+                    && restaurantForm.name.$dirty ,
+                    'glyphicon-pencil': restaurantForm.name.$pristine }"></span>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="
+            { 'has-success': validCountry
+            && restaurantForm.country.$dirty,
+            'has-error': invalidCountry
+            && restaurantForm.country.$dirty }">
+                <label for="country" class="col-sm-2 control-label">País</label>
+                <div class="col-sm-5 col-xs-11">
+                    <input type="text" name="country" class="form-control" ng-model="model.country" required>
+                </div>
+                <div class="col-sm-2 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': validCountry
+                    && restaurantForm.country.$dirty,
+                    'glyphicon-remove red_class': invalidCountry
+                    && restaurantForm.country.$dirty ,
+                    'glyphicon-pencil': restaurantForm.country.$pristine }"></span>
+                </div>
+                <div class="col-xs-2 col-xs-offset-4 col-sm-offset-0">
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Listado de paises
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in countries">
+                                <a href="#">{{::item }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="form-group" ng-class="
+            { 'has-success': restaurantForm.type.$valid
+            && restaurantForm.type.$dirty,
+            'has-error': restaurantForm.type.$invalid
+            && restaurantForm.type.$dirty }">
+                <label for="type" class="col-sm-2 control-label">Tipo comida</label>
+                <div class="col-sm-9 col-xs-11">
+                    <input type="text" name="type" class="form-control" ng-model="model.type" required>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': restaurantForm.type.$valid
+                    && restaurantForm.type.$dirty,
+                    'glyphicon-remove red_class': restaurantForm.type.$invalid
+                    && restaurantForm.type.$dirty ,
+                    'glyphicon-pencil': restaurantForm.type.$pristine }"></span>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="
+            { 'has-success': restaurantForm.picture_main.$valid
+            && restaurantForm.picture_main.$dirty,
+            'has-error': restaurantForm.picture_main.$invalid
+            && restaurantForm.picture_main.$dirty }">
+                <label for="picture_main" class="col-sm-2 control-label">Imagen</label>
+                <div class="col-sm-9 col-xs-11">
+                    <input type="url" name="picture_main" placeholder="http://" class="form-control" ng-model="model.picture_main" required>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': restaurantForm.picture_main.$valid
+                    && restaurantForm.picture_main.$dirty,
+                    'glyphicon-remove red_class': restaurantForm.picture_main.$invalid
+                    && restaurantForm.picture_main.$dirty,
+                    'glyphicon-pencil': restaurantForm.picture_main.$pristine }"></span>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Opcional
+                </div>
+                <div class="panel-body">
+
+                    <div class="form-group" ng-class="
+                    { 'has-success': restaurantForm.url.$valid
+                    && restaurantForm.url.$dirty,
+                    'has-error': restaurantForm.url.$invalid
+                    && restaurantForm.url.$dirty }">
+                        <label for="url" class="col-sm-2 control-label">Imagen 1</label>
+                        <div class="col-sm-9 col-xs-11">
+                            <input type="url" name="url" placeholder="http://" class="form-control" ng-model="model.url">
+                        </div>
+                        <div class="col-sm-1 col-xs-1">
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-class="
+                    { 'has-success': restaurantForm.opinion.$valid
+                    && restaurantForm.opinion.$dirty,
+                    'has-error': restaurantForm.opinion.$invalid
+                    && restaurantForm.opinion.$dirty }">
+                        <label for="opinion" class="col-sm-2 control-label">Opinión</label>
+                        <div class="col-sm-9 col-xs-11">
+                            <textarea name="opinion" ng-model="model.opinion" class="form-control">
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <center>
+                <button class="btn btn-primary" type="submit" ng-disabled="restaurantForm.$invalid || invalidCountry ">Crear Restaurante</button>
+            </center>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+</div>

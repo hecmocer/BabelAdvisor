@@ -2,6 +2,7 @@ angular.module("babeladvisor").controller("DestinationsCtrl", ["$scope", "$locat
 
     // model init
     $scope.model = {};
+    $scope.uiState = "loading";
     getDestinations();
 
     function getDestinations () {
@@ -10,12 +11,16 @@ angular.module("babeladvisor").controller("DestinationsCtrl", ["$scope", "$locat
         APIClient.getDestinationList(paramC).then(
         // Lista de destinos encontrados
         function(data) {
-            $scope.model = data.rows;
+            $scope.model = data.rows || "";
+            if($scope.model.length > 0){
+                $scope.uiState = "ideal";
+            }
+            else
+                $scope.uiState = "blank";
         },
         // Promesa rechazada
         function(error) {
-            console.error("Error al cargar restaurantes");
-            //$scope.uiState = 'error';
+            $scope.uiState = 'error';
         });
     }
 }])

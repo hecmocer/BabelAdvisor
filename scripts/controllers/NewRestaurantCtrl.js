@@ -1,17 +1,22 @@
-angular.module("babeladvisor").controller("NewDestinationCtrl",
+angular.module("babeladvisor").controller("NewRestaurantCtrl",
     ["$scope", "APIClient", function($scope, APIClient){
 
         // Scope init
         $scope.model = {};
+
         $scope.countries = [];
+
         $scope.formCountry = "";
+
         $scope.validCountry = false;
         $scope.invalidCountry = true;
+
         $scope.successMessage = null;
         $scope.errorMessage = null;
+
         getCountries();
 
-        $scope.$watch('destinationForm.country.$modelValue', function(newValue, oldValue) {
+        $scope.$watch('restaurantForm.country.$modelValue', function(newValue, oldValue) {
             $scope.formCountry = newValue;
             $scope.validCountry = $scope.checkValidCountry();
             $scope.invalidCountry = !$scope.validCountry;
@@ -19,14 +24,14 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
 
         // Scope methods
         $scope.saveForm = function(){
-            APIClient.createDestination($scope.model).then(
-                function(destination){
-                    $scope.successMessage = "¡Destino guardado con éxito! <br> <a href='#/destinations/" + destination.insertedElement._id + "'>Ver el detalle del nuevo destino</a>";
+            APIClient.createRestaurant($scope.model).then(
+                function(restaurant){
+                    $scope.successMessage = "¡Restaurante guardado con éxito! <br><a href='#/restaurants/" + restaurant.insertedElement._id + "'>Ver el detalle del nuevo restaurante</a>";
                     $scope.model = {};
                     $scope.formCountry = "";
                     $scope.validCountry = false;
                     $scope.invalidCountry = true;
-                    $scope.destinationForm.$setPristine();
+                    $scope.restaurantForm.$setPristine();
                 },
                 function(error){
                     $scope.errorMessage = "Fatal error when trying to submit form."

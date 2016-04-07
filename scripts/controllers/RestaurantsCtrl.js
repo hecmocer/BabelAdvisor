@@ -2,6 +2,7 @@ angular.module("babeladvisor").controller("RestaurantsCtrl", ["$scope", "$locati
 
     // model init
     $scope.model = {};
+    $scope.uiState = "loading";
     getRestaurants();
 
     function getRestaurants () {
@@ -10,12 +11,16 @@ angular.module("babeladvisor").controller("RestaurantsCtrl", ["$scope", "$locati
         APIClient.getRestaurantList(paramC).then(
         // Lista de restaurantes encontrados
         function(data) {
-            $scope.model = data.rows;
+            $scope.model = data.rows || "";
+            if($scope.model.length > 0){
+                $scope.uiState = "ideal";
+            }
+            else
+                $scope.uiState = "blank";
         },
         // Promesa rechazada
         function(error) {
-            console.error("Error al cargar restaurantes");
-            //$scope.uiState = 'error';
+            $scope.uiState = 'error';
         });
     }
 }])

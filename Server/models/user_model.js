@@ -13,11 +13,17 @@ var userSchema = mongoose.Schema({
 });
 
 // Añadimos función que devuelve todos los usuarios
-userSchema.statics.listAll = function(cb){
+userSchema.statics.listAll = function(name, cb){
     // Preparamos la query sin ejecutarla
     var query = User.find({});
 
-    query.select('profile_picture name email');
+    if(name !== ""){
+        query.where('name').equals(name);
+        query.select('pwd');
+    }
+    else{
+        query.select('profile_picture name email');
+    }
 
     // Ejecutamos la query y llamamos al callback
     query.exec(function(err, rows){

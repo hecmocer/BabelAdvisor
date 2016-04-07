@@ -1,9 +1,18 @@
 <div ng-controller="HotelsCtrl">
-    <h1>hotels</h1>
+    <h1>Hoteles</h1>
 
     <a href="#/hotels/new"><button type="button" class="btn btn-primary">Nuevo!</button></a>
 
-    <table class="table table-striped">
+    <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
+    </div>
+
+    <div ng-include="'views/noData.html'" ng-show="uiState=='blank'">
+    </div>
+
+    <div ng-include="'views/errorLoadingData.html'" ng-show="uiState=='error'">
+    </div>
+
+    <table class="table table-striped"  ng-show="uiState=='ideal'">
         <thead>
             <tr>
                 <th>Nombre</th>

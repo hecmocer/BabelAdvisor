@@ -1,24 +1,35 @@
 <div ng-controller="DestinationDetailCtrl">
-    <h1>detalle destino</h1>
+    <h1>Detalle destino</h1>
 
-    <button type="button" class="btn btn-default" ng-click="upVote()">UpVote</button>
-    <button type="button" class="btn btn-default" ng-click="downVote()">DownVote</button>
+    <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
+    </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>País</th>
-                <th>Imagen principal</th>
-                <th>Imagen 1</th>
-                <th>Imagen 2</th>
-                <th>Imagen 3</th>
-                <th>Opinión</th>
-                <th>Votos positivos</th>
-                <th>Votos negativos</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div ng-include="'views/noData.html'" ng-show="uiState=='blank'">
+    </div>
+
+    <div ng-include="'views/errorLoadingData.html'" ng-show="uiState=='error'">
+    </div>
+
+    <div ng-show="uiState=='ideal'">
+
+        <button type="button" class="btn btn-default" ng-click="upVote()">UpVote</button>
+        <button type="button" class="btn btn-default" ng-click="downVote()">DownVote</button>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>País</th>
+                    <th>Imagen principal</th>
+                    <th>Imagen 1</th>
+                    <th>Imagen 2</th>
+                    <th>Imagen 3</th>
+                    <th>Opinión</th>
+                    <th>Votos positivos</th>
+                    <th>Votos negativos</th>
+                </tr>
+            </thead>
+            <tbody>
                 <td>
                     {{::model.name }}
                 </td>
@@ -46,7 +57,7 @@
                 <td>
                     {{ model.downVotes }}
                 </td>
-            </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>

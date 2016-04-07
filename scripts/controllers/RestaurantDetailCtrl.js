@@ -2,16 +2,23 @@ angular.module("babeladvisor").controller("RestaurantDetailCtrl",
     ["$scope", "$routeParams", "$location", "APIClient", "paths",
     function($scope, $routeParams, $location, APIClient, paths){
 
-        $scope.model = {}
+        $scope.model = {};
+        $scope.uiState = "loading";
 
         // Controller init
         APIClient.getRestaurantDetail($routeParams.id).then(
             // Elemento encontrado
             function(restaurant) {
-                $scope.model = restaurant.row;
+                $scope.model = restaurant.row || "";
+                if($scope.model.length != ""){
+                    $scope.uiState = "ideal";
+                }
+                else
+                    $scope.uiState = "blank";
             },
             // Elemento no encontrado
             function(error) {
+                $scope.uiState = "error";
                 $location.url(paths.error);
             }
         );

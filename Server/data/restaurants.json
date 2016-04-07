@@ -3,7 +3,7 @@
     {
         "name": "Restaurante1",
         "country": "España",
-        "picture": null,
+        "picture": "",
         "opinion": "Prueba 1",
         "type": "Española, Mediterránea",
         "url": "google.com",
@@ -13,7 +13,7 @@
     {
         "name": "Restaurante2",
         "country": "Reino Unido",
-        "picture": null,
+        "picture": "",
         "opinion": "Prueba 2",
         "type": "Fish and Chips",
         "url": "google.com",
@@ -23,7 +23,7 @@
     {
         "name": "Restaurante3",
         "country": "Dinamarca",
-        "picture": null,
+        "picture": "",
         "opinion": "Prueba 1",
         "type": "Tuna",
         "url": "google.com",

@@ -2,16 +2,23 @@ angular.module("babeladvisor").controller("DestinationDetailCtrl",
     ["$scope", "$routeParams", "$location", "APIClient", "paths",
     function($scope, $routeParams, $location, APIClient, paths){
 
-        $scope.model = {}
+        $scope.model = {};
+        $scope.uiState = "loading";
 
         // Controller init
         APIClient.getDestinationDetail($routeParams.id).then(
             // Elemento encontrado
             function(destination) {
-                $scope.model = destination.row;
+                $scope.model = destination.row || "";
+                if($scope.model.length != ""){
+                    $scope.uiState = "ideal";
+                }
+                else
+                    $scope.uiState = "blank";
             },
             // Elemento no encontrado
             function(error) {
+                $scope.uiState = "error";
                 $location.url(paths.error);
             }
         );
@@ -26,7 +33,7 @@ angular.module("babeladvisor").controller("DestinationDetailCtrl",
             function(error){
                 $location.url(paths.error);
             }
-        );
+            );
         }
 
         $scope.downVote = function(){
@@ -39,7 +46,7 @@ angular.module("babeladvisor").controller("DestinationDetailCtrl",
             function(error){
                 $location.url(paths.error);
             }
-        );
+            );
         }
 
     }]);

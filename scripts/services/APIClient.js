@@ -168,5 +168,25 @@ angular.module("babeladvisor").service("APIClient",
             return this.apiPostRequest(apiPaths.destinations, destination);
         }
 
+        this.createHotel = function(hotel){
+            hotel.upVotes = 0;
+            hotel.downVotes = 0;
+            return this.apiPostRequest(apiPaths.hotels, hotel);
+        }
+
+        this.createRestaurant = function(restaurant){
+            restaurant.upVotes = 0;
+            restaurant.downVotes = 0;
+            return this.apiPostRequest(apiPaths.restaurants, restaurant);
+        }
+
+        this.getUserPwd = function(userParam){
+            if(userParam != ""){
+                return this.apiGetRequest(apiPaths.users + "?n=" + userParam);
+            }
+            else{
+                return this.apiGetRequest(apiPaths.users);
+            }
+        }
     }
     ]);

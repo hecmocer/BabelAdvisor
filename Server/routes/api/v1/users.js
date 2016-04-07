@@ -5,7 +5,9 @@ var User = mongoose.model('User');
 
 // Petición GET
 router.get('/', function(req, res, next) {
-    User.listAll(function(err, rows){
+    var userParam = req.query.n || "";
+
+    User.listAll(userParam, function(err, rows){
         if(err){
             res.json({
                 result: false,

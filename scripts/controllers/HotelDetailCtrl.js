@@ -2,16 +2,23 @@ angular.module("babeladvisor").controller("HotelDetailCtrl",
     ["$scope", "$routeParams", "$location", "APIClient", "paths",
     function($scope, $routeParams, $location, APIClient, paths){
 
-        $scope.model = {}
+        $scope.model = {};
+        $scope.uiState = "loading";
 
         // Controller init
         APIClient.getHotelDetail($routeParams.id).then(
             // Elemento encontrado
             function(hotel) {
-                $scope.model = hotel.row;
+                $scope.model = hotel.row || "";
+                if($scope.model.length != ""){
+                    $scope.uiState = "ideal";
+                }
+                else
+                    $scope.uiState = "blank";
             },
             // Elemento no encontrado
             function(error) {
+                $scope.uiState = "error";
                 $location.url(paths.error);
             }
         );

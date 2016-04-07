@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="babeladvisor">
+<html lang="en" ng-app="babeladvisor" ng-controller="AppCtrl">
 
 <head>
     <title>BabelAdvisor</title>
@@ -9,14 +9,17 @@
 </head>
 
 <body>
-    <a href="#/">Raíz</a>
-    <a href="#/home">Home</a>
-    <a href="#/users">Usuarios</a>
-    <a href="#/countries">Países</a>
-    <a href="#/destinations">Destinos</a>
-    <a href="#/hotels">Hoteles</a>
-    <a href="#/restaurants">Restaurantes</a>
-    <div ng-view>
+    <div ng-include="'views/login.html'" ng-show="model.user===null"></div>
+    <div ng-show="model.user!==null">
+        <div ng-include="'views/navBar.html'"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-view>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="dist/app.js"></script>
 </body>

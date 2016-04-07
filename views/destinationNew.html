@@ -16,10 +16,10 @@
             && destinationForm.name.$dirty }">
                 <label for="name" class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-9 col-xs-11">
-                    <input type="text" name="name" class="form-control" ng-model="model.name" required>
+                    <input type="text" name="name" class="form-control" ng-model="model.name" required autofocus>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <span class="glyphicon" ng-class="
+                    <span class="glyphicon margin_top_class" ng-class="
                     { 'glyphicon-ok green_class': destinationForm.name.$valid
                     && destinationForm.name.$dirty,
                     'glyphicon-remove red_class': destinationForm.name.$invalid
@@ -38,7 +38,7 @@
                     <input type="text" name="country" class="form-control" ng-model="model.country" required>
                 </div>
                 <div class="col-sm-2 col-xs-1">
-                    <span class="glyphicon" ng-class="
+                    <span class="glyphicon margin_top_class" ng-class="
                     { 'glyphicon-ok green_class': validCountry
                     && destinationForm.country.$dirty,
                     'glyphicon-remove red_class': invalidCountry
@@ -69,7 +69,7 @@
                     <input type="url" name="picture_main" placeholder="http://" class="form-control" ng-model="model.picture_main" required>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <span class="glyphicon" ng-class="
+                    <span class="glyphicon margin_top_class" ng-class="
                     { 'glyphicon-ok green_class': destinationForm.picture_main.$valid
                     && destinationForm.picture_main.$dirty,
                     'glyphicon-remove red_class': destinationForm.picture_main.$invalid

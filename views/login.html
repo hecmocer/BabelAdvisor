@@ -1,0 +1,15 @@
+<div class="container" ng-controller="LoginCtrl">
+
+    <h1 id="title">Bienvenido a BabelAdvisor
+        <span><img id="brand" src="../public/logo.png" alt="Logo" style="width: 200px"></span>
+    </h1>
+
+    <form class="form-signin" novalidate ng-submit="checkPwd(model.username, model.pass)">
+        <h2 class="form-signin-heading">Inicia sesión</h2>
+        <label for="inputUsername" class="sr-only">Nombre de usuario</label>
+        <input id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="model.username">
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="model.pass">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
+    </form>
+</div>
