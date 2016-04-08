@@ -1,1 +1,41 @@
-<h1>home</h1>
+<div class="home">
+
+    <h1 class="inline">BabelAdvisor</h1>
+    <h4 class="inline">¿Adónde quieres ir hoy?</h4>
+
+    <br>
+    <br>
+
+    <p>Hola {{ model.user }}, aquí encontrarás una selección de destinos, hoteles y restaurantes en varios de los paises de Europa.</p>
+
+    <p>Te invitamos a navegar por la web hasta que encuentres lo que buscas</p>
+
+    <p>¡Disfruta!</p>
+
+    <div class="col-xs-12 row">
+        <a href="#/destinations">
+            <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
+                <img src="https://image.freepik.com/free-photo/loupe--road--chart--destination_3312369.jpg" alt="destinos" class="img-responsive img">
+                <h2 class="textOverImg">
+                    Destinos <span class="glyphicon glyphicon-map-marker glyphiconSize"></span>
+                </h2>
+            </div>
+        </a>
+        <a href="#/hotels">
+            <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
+                <img src="http://portoribeira.carrishoteles.com/en/images/hab3_1g.jpg" class="img-responsive img">
+                <h2 class="textOverImg">
+                    Hoteles <span class="glyphicon glyphicon-header glyphiconSize"></span>
+                </h2>
+            </div>
+        </a>
+        <a href="#/restaurants">
+            <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0">
+                <img src="http://myasorin.ro/img/restaurant.jpg" class="img-responsive img">
+                <h2 class="textOverImg">
+                    Restaurantes <span class="glyphicon glyphicon-cutlery glyphiconSize"></span>
+                </h2>
+            </div>
+        </a>
+    </div>
+</div>

@@ -29,7 +29,7 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
                     $scope.destinationForm.$setPristine();
                 },
                 function(error){
-                    $scope.errorMessage = "Fatal error when trying to submit form."
+                    $scope.errorMessage = "Fatal error when trying to submit form.";
                 }
                 );
         };
@@ -57,7 +57,6 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
             // Promesa rechazada
             function(error) {
                 console.error("Error al cargar paises");
-                //$scope.uiState = 'error';
             });
         }
 

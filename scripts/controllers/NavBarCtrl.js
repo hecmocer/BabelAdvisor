@@ -1,21 +1,19 @@
-angular.module("babeladvisor").controller("NavBarCtrl", ["$scope", "login", function($scope, login) {
+angular.module("babeladvisor").controller("NavBarCtrl", ["$scope", "$location", "paths", "login", function($scope, $location, paths, login) {
 
-    $scope.model = {}
-    $scope.model.currentUser = login.currentUser();
+    $scope.model = {
+        selectedItem: $location.path(),
+        currentUser: login.currentUser()
+    }
+    $scope.paths = paths;
 
-    // Para la navbar
-    // // metodos del scope
-    // $scope.setSelectedItem = function(item) {
-    //     $scope.model.selectedItem = item;
-    // }
-
-    // $scope.getClassForItem = function(item) {
-    //     if ($scope.model.selectedItem == item) {
-    //         return "active";
-    //     } else {
-    //         return "";
-    //     }
-    // }
+    // metodos del scope
+    $scope.getClassForItem = function(item) {
+        if ($scope.model.selectedItem == item) {
+            return "active";
+        } else {
+            return "";
+        }
+    }
 
     $scope.logout = function () {
         login.logout();
@@ -24,6 +22,10 @@ angular.module("babeladvisor").controller("NavBarCtrl", ["$scope", "login", func
     }
 
     // scope event listeners
+    $scope.$on("$locationChangeSuccess", function(evt, currentRoute) {
+        $scope.model.selectedItem = $location.path();
+    });
+
     $scope.$on("$userchange", function (evt, user) {
         $scope.model.currentUser = user.name;
     })

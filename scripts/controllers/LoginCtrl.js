@@ -2,6 +2,8 @@ angular.module("babeladvisor").controller("LoginCtrl", ["$scope","login", "APICl
 
     //scope init
     $scope.model = {};
+    $scope.errorMessage = null;
+
 
     $scope.login = function (name) {
         login.logIn(name);
@@ -13,18 +15,30 @@ angular.module("babeladvisor").controller("LoginCtrl", ["$scope","login", "APICl
             function(result){
                 if(result.count > 0){
                     if(pwd === result.rows[0].pwd){
-                        console.log("LOGIN CORRECTO");
+                        $scope.errorMessage = null;
                         $scope.login(name);
                     }
                     else{
-                        console.log("PWD INCORRECTA");
+                        $scope.errorMessage = "<center><strong>Contraseña incorrecta</strong> <br>Prueba de nuevo</center>";
                     }
                 }else{
-                    console.log("No tenemos ningun usuario registrado con ese nombre");
+                    $scope.errorMessage = "<center><strong>No existe tal usuario en nuestro sistema</strong> <br>Prueba de nuevo</center>";
                 }
             },
             function(error){
                 console.log("No user found");
+            });
+    }
+
+    $scope.createUser = function (name, pwd, email, picture){
+        console.log("intento de registro: ", name, pwd, email, picture);
+        APIClient.createUser(name, pwd, email, picture).then(
+            function(result){
+                $scope.errorMessage = null;
+                $scope.login(name);
+            },
+            function(err){
+                console.log("NO SE HA PODIDO INSERTAR EL USUARIO");
             });
     }
 }])

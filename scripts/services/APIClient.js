@@ -188,5 +188,16 @@ angular.module("babeladvisor").service("APIClient",
                 return this.apiGetRequest(apiPaths.users);
             }
         }
+
+        this.createUser = function(username, password, eMail, picture){
+            var profilePic = picture || "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
+            var data_to_post = {
+                profile_picture: profilePic,
+                name: username,
+                email: eMail,
+                pwd: password
+            }
+            return this.apiPostRequest(apiPaths.users, data_to_post);
+        }
     }
     ]);

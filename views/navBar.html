@@ -1,17 +1,31 @@
 <div ng-controller="NavBarCtrl">
 
-    <a href="#/">Raíz</a>
-    <a href="#/home">Home</a>
-    <a href="#/users">Usuarios</a>
-    <a href="#/countries">Países</a>
-    <a href="#/destinations">Destinos</a>
-    <a href="#/hotels">Hoteles</a>
-    <a href="#/restaurants">Restaurantes</a>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand fontTitle" href="#{{::paths.home}}">BabelAdvisor</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-class="getClassForItem(paths.users)"><a href="#{{::paths.users}}"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
+                    <li ng-class="getClassForItem(paths.countries)"><a href="#{{::paths.countries}}"><span class="glyphicon glyphicon-map-marker"></span> Paises</a></li>
+                    <li ng-class="getClassForItem(paths.destinations)"><a href="#{{::paths.destinations}}"><span class="glyphicon glyphicon-picture"></span> Destinos</a></li>
+                    <li ng-class="getClassForItem(paths.hotels)"><a href="#{{::paths.hotels}}"><span class="glyphicon glyphicon-header"></span> Hoteles</a></li>
+                    <li ng-class="getClassForItem(paths.restaurants)"><a href="#{{::paths.restaurants}}"><span class="glyphicon glyphicon-cutlery"></span> Restaurantes</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#{{::paths.home}}"><span class="glyphicon glyphicon-home"></span> {{ model.currentUser }}</a></li>
+                    <li><a href="#{{::paths.home}}" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
-    <div class="pull-right">
-        <a href="#/home">Usuario: {{ model.currentUser }}</a></li>
-        <div class="btn btn-primary navbar-btn" ng-click="logout()">Logout</div>
-    </div>
-    <br>
-    USER: {{ model.currentUser }}
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
