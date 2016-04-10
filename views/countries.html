@@ -1,5 +1,6 @@
 <div ng-controller="CountriesCtrl">
-    <h1>Paises</h1>
+    <h1 class="fontUnkempt">Paises</h1>
+    <br>
 
     <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
     </div>
@@ -10,34 +11,38 @@
     <div ng-include="'views/errorLoadingData.html'" ng-show="uiState=='error'">
     </div>
 
-    <table class="table table-striped" ng-show="uiState=='ideal'">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Bandera</th>
-                <th>Votos positivos</th>
-                <th>Votos negativos</th>
-                <th>Link</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in model">
-                <td>
-                    {{::item.name }}
-                </td>
-                <td>
-                    <img ng-src="{{::item.flag }}" alt="bandera" style="width: 100px">
-                </td>
-                <td>
-                    {{::item.upVotes }}
-                </td>
-                <td>
-                    {{::item.downVotes }}
-                </td>
-                <td>
-                    <a href="{{::item.link }}">VER</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col-xs-12">
+        <div ng-repeat="item in model">
+            <div class="col-xs-6 col-sm-4 col-lg-3 col-lg-offset-1">
+                <a href="{{::item.link }}">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <span class="label label-success">
+                                    {{::item.upVotes }}
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                </span>
+                            </div>
+                            <div class="pull-right">
+                                <span class="label label-danger">
+                                    {{::item.downVotes }}
+                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                </span>
+                            </div>
+                            <center>
+                                {{::item.name}}
+                            </center>
+                        </div>
+                        <div class="panel-body" style="background-color: ghostwhite">
+                            <div class="img-container-no-shadow">
+                                <center>
+                                    <img ng-src="{{::item.flag }}" alt="bandera" style="width:100%" class="img-scalable">
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

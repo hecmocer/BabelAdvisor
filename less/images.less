@@ -1,0 +1,26 @@
+.img-container{
+    position: relative;
+    box-shadow: 5px 5px 10px orange;
+    border: solid 1px black;
+    overflow: hidden;
+
+    .img-scalable{
+        transition: transform 750ms;
+        &:hover{
+            transform: scale(1.1,1.1);
+        }
+    }
+}
+
+.img-container-no-shadow{
+    position: relative;
+    border: solid 1px black;
+    overflow: hidden;
+
+    .img-scalable{
+        transition: transform 750ms;
+        &:hover{
+            transform: scale(1.1,1.1);
+        }
+    }
+}

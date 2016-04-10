@@ -1,5 +1,6 @@
 <div ng-controller="RestaurantDetailCtrl">
-    <h1>Detalle restaurante</h1>
+    <h1 class="fontUnkempt">{{::model.name }}</h1>
+    <br>
 
     <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
     </div>
