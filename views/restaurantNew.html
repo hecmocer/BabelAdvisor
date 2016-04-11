@@ -96,11 +96,16 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel panel-success">
                 <div class="panel-heading">
-                    Opcional
+                    <span>
+                        Opcional
+                    </span>
+                    <span class="pull-right">
+                        <a class="toggleCollapse collapsed" data-toggle="collapse" data-target="#opcionales"></a>
+                    </span>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body collapse" id="opcionales">
 
                     <div class="form-group" ng-class="
                     { 'has-success': restaurantForm.url.$valid

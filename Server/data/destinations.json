@@ -45,6 +45,39 @@
         "downVotes": 33
     },
     {
+        "name": "Valencia",
+        "country": "España",
+        "picture_main": "http://paellaproductions.com/wp-content/uploads/2013/10/Ciudad-de-les-arts.jpg",
+        "picture_1": "http://congress.cimne.com/CMN2017/frontal/upload/background.jpg",
+        "picture_2": "https://upload.wikimedia.org/wikipedia/commons/7/72/Puerta_de_los_Serranos,_Valencia,_Espa%C3%B1a,_2014-06-30,_DD_86.JPG",
+        "picture_3": "https://d16teuje7e44sv.cloudfront.net/spa/cities/spain/valencia-medium.jpg",
+        "opinion": "Parada obligada",
+        "upVotes": 135,
+        "downVotes": 81
+    },
+    {
+        "name": "Mérida",
+        "country": "España",
+        "picture_main": "http://berniniviajes.com/wp-content/uploads/2015/04/MERIDA2.jpg",
+        "picture_1": "http://www.españaescultura.es/export/sites/cultura/multimedia/galerias/monumentos/anfiteatro_merida_t0600201.jpg_1306973099.jpg",
+        "picture_2": "http://www.iberrutas.com/wp-content/blogs.dir/1/files/merida/merida02.jpg",
+        "picture_3": null,
+        "opinion": "Destino turístico",
+        "upVotes": 0,
+        "downVotes": 14
+    },
+    {
+        "name": "Burdeos",
+        "country": "Francia",
+        "picture_main": "http://www.diariodeabordoblog.com/wp-content/uploads/2014/04/Burdeos-Noche-Mirror-Eau.jpg",
+        "picture_1": "http://vuelos.rumbo.es/vuelos/rumbo/img/burdeos.jpg",
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Ciudad con encanto",
+        "upVotes": 13,
+        "downVotes": 145
+    },
+    {
         "name": "Berlin",
         "country": "Alemania",
         "picture_main": "http://www.happylowcost.com/wp-content/uploads/2016/01/berlin-4.jpg",

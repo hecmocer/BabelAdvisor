@@ -1,7 +1,7 @@
 <div ng-controller="DestinationsCtrl">
     <h1>
         <span class="fontUnkempt">Destinos - </span>
-        <a href="#/destinations/new"><button type="button" class="btn btn-primary" style="margin-top: -5px">Crear nuevo!</button></a>
+        <a href="#/destinations/new" type="button" class="btn btn-primary" style="margin-top: -5px">Crear nuevo!</a>
     </h1>
     <br>
     <br>
@@ -27,9 +27,9 @@
             <tr>
                 <th>Nombre</th>
                 <th>País</th>
-                <th>Portada</th>
-                <th>Votos positivos</th>
-                <th>Votos negativos</th>
+                <th><center>Portada</center></th>
+                <th><center>Votos positivos</center></th>
+                <th><center>Votos negativos</center></th>
             </tr>
         </thead>
         <tbody>
@@ -41,7 +41,7 @@
                 </td>
                 <td>
                     <a href="#/countries/" class="no-decoration">
-                        {{::item.country}}
+                        {{::item.country }}
                     </a>
                 </td>
                 <td>
@@ -54,12 +54,17 @@
                     </a>
                 </td>
                 <td>
-                    <h4><span class="label label-success">{{::item.upVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    <center>
+                        <h4><span class="label label-success">{{::item.upVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    </center>
                 </td>
                 <td>
-                    <h4><span class="label label-danger">{{::item.downVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    <center>
+                        <h4><span class="label label-danger">{{::item.downVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    </center>
                 </td>
             </tr>
         </tbody>
     </table>
+    <h4 ng-show="(model | filter:query).length === 0">No hay resultados</h4>
 </div>

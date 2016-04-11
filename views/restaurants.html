@@ -1,8 +1,17 @@
 <div ng-controller="RestaurantsCtrl">
-    <h1 class="fontUnkempt">Restaurantes</h1>
+    <h1>
+        <span class="fontUnkempt">Restaurantes - </span>
+        <a href="#/restaurants/new" type="button" class="btn btn-primary" style="margin-top: -5px">Crear nuevo!</a>
+    </h1>
+    <br>
     <br>
 
-    <a href="#/restaurants/new"><button type="button" class="btn btn-primary">Nuevo!</button></a>
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-lg-offset-2">
+        <input type="search" ng-model="query.name" class="form-control input-sm" placeholder="Buscar por restaurante...">
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <input type="search" ng-model="query.country" class="form-control input-sm" placeholder="Buscar por país...">
+    </div>
 
     <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
     </div>
@@ -18,38 +27,48 @@
             <tr>
                 <th>Nombre</th>
                 <th>País</th>
-                <th>Imagen</th>
-                <th>Tipo</th>
-                <th>Votos positivos</th>
-                <th>Votos negativos</th>
-                <th>Link</th>
+                <th><center>Imagen</center></th>
+                <th><center>Tipo</center></th>
+                <th><center>Votos positivos</center></th>
+                <th><center>Votos negativos</center></th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in model">
+            <tr ng-repeat="item in model | filter:query">
                 <td>
-                    {{::item.name }}
+                    <a href="{{::item.link }}" class="no-decoration">
+                        <h4>{{::item.name }}</h4>
+                    </a>
                 </td>
                 <td>
-                    {{::item.country}}
+                    <a href="#/countries/" class="no-decoration">
+                        {{::item.country}}
+                    </a>
                 </td>
                 <td>
-                    <img ng-src="{{::item.picture }}" alt="imagenRestaurante" style="width: 100px">
+                    <a href="{{::item.link }}" class="no-decoration">
+                        <div class="img-container-no-shadow-no-border">
+                            <center>
+                                <img ng-src="{{::item.picture }}" class="img-scalable" alt="imagenPortada" style="width: 200px">
+                            </center>
+                        </div>
+                    </a>
                 </td>
                 <td>
-                    {{::item.type}}
+                    {{::item.type }}
                 </td>
                 <td>
-                    {{::item.upVotes }}
+                    <center>
+                        <h4><span class="label label-success">{{::item.upVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    </center>
                 </td>
                 <td>
-                    {{::item.downVotes }}
-                </td>
-                <td>
-                    <a href="{{::item.link }}">VER</a>
+                    <center>
+                        <h4><span class="label label-danger">{{::item.downVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    </center>
                 </td>
             </tr>
         </tbody>
     </table>
-
+    <h4 ng-show="(model | filter:query).length === 0">No hay resultados</h4>
 </div>
