@@ -23,6 +23,17 @@
         "downVotes": 0
     },
     {
+        "name": "Barcelona",
+        "country": "España",
+        "picture_main": "http://7portes.com/wp-content/uploads/barcelona-noche-1.jpg",
+        "picture_1": "http://www.euro-sur.com/wp-content/uploads/2016/01/mudanza-barcelona-precio-mudanzabarcelona-mudanza-presupuesto-online-guardamuebles-trasteros-traslado-oficinas-empresas-de-mudanzas-internacionales-transportes-y-mudanzas-4.jpg",
+        "picture_2": "http://www.monbus.es/media/img/offers/546639eec1557.jpg",
+        "picture_3": "http://www.camping-vendrellplatja.com/wp-content/uploads/2014/01/Barcelonapw.jpg",
+        "opinion": "Un lugar único",
+        "upVotes": 54,
+        "downVotes": 88
+    },
+    {
         "name": "Copenhague",
         "country": "Dinamarca",
         "picture_main": "http://trv-checkin.s3-eu-central-1.amazonaws.com/wp-content/uploads/sites/12/2014/10/Fotolia_57057446_Subscription_Monthly_M.jpg",
@@ -32,6 +43,83 @@
         "opinion": "Una ciudad inolvidable",
         "upVotes": 54,
         "downVotes": 33
+    },
+    {
+        "name": "Berlin",
+        "country": "Alemania",
+        "picture_main": "http://www.happylowcost.com/wp-content/uploads/2016/01/berlin-4.jpg",
+        "picture_1": "https://welcomelua.files.wordpress.com/2016/03/berlin4.jpg",
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Capital de Alemania",
+        "upVotes": 544,
+        "downVotes": 313
+    },
+    {
+        "name": "Louvre",
+        "country": "Francia",
+        "picture_main": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRMBaerQlZC7SjjJzSo3PyqXC6NXqHZ5Xfr6UFD-VZaJjKGapDVGQ",
+        "picture_1": "http://www.eyepreferparis.com/.a/6a00d83451b0bd69e201b7c789f0d4970b-800wi",
+        "picture_2": "http://www.actitudfem.com/media/files/louvre5.jpg",
+        "picture_3": null,
+        "opinion": "Uno de los mayores museos del mundo",
+        "upVotes": 312,
+        "downVotes": 12
+    },
+    {
+        "name": "Lisboa",
+        "country": "Portugal",
+        "picture_main": "http://cdn.images.cunard.com/webimage/HeroImage/Global/Images/Destinations/Lisbon19166.jpg",
+        "picture_1": "https://tctechcrunch2011.files.wordpress.com/2015/10/lisbon.jpg",
+        "picture_2": "http://yainis.com/wp-content/uploads/2015/05/lisbon-1.jpg",
+        "picture_3": null,
+        "opinion": "Capital de Portugal",
+        "upVotes": 13,
+        "downVotes": 84
+    },
+    {
+        "name": "Amsterdam",
+        "country": "Holanda",
+        "picture_main": "http://amsterdamtours.es/cache/widgetkit/gallery/32/visita-guiada-amsterdam-3-68b1701021.jpg",
+        "picture_1": "http://cdn.lopezdoriga.com/wp-content/uploads/2016/03/Amsterdam.jpg",
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Hogar de Anna Frank",
+        "upVotes": 13,
+        "downVotes": 84
+    },
+    {
+        "name": "Atomium de Bruselas",
+        "country": "Belgica",
+        "picture_main": "https://media-cdn.tripadvisor.com/media/photo-s/01/a8/4f/64/the-restaurant-is-in.jpg",
+        "picture_1": "http://images.opt.be/images/elto_big/17257_1.jpg",
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Edificio construido para una exposición universal",
+        "upVotes": 3141,
+        "downVotes": 345
+    },
+    {
+        "name": "Roma",
+        "country": "Italia",
+        "picture_main": "http://static3.absolutroma.com/wp-content/uploads/2016/01/viaje-a-roma.jpg",
+        "picture_1": "http://www.hayaperegrinaciones.com/wp-content/uploads/2014/08/roma-guay.jpg",
+        "picture_2": "https://ghatapartments.files.wordpress.com/2015/06/roma-tiber.jpg",
+        "picture_3": null,
+        "opinion": "Ciudad turística",
+        "upVotes": 58979,
+        "downVotes": 12315
+    },
+    {
+        "name": "Partenon",
+        "country": "Grecia",
+        "picture_main": "http://leiter.files.wordpress.com/2009/12/partenon-i.jpg",
+        "picture_1": "http://apuntes.santanderlasalle.es/arte/grecia/arquitectura/partenon/partenon_dibujo.jpg",
+        "picture_2": null,
+        "picture_3": null,
+        "opinion": "Antigua polis griega",
+        "upVotes": 1415,
+        "downVotes": 123
     }
     ]
 }

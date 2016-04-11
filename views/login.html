@@ -1,4 +1,4 @@
-<div class="container login" ng-controller="LoginCtrl">
+<div class="container" ng-controller="LoginCtrl">
 
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
         <h1 class="animated bounceIn" id="title">Bienvenido a
@@ -19,12 +19,11 @@
 
             <br>
 
-            <div class="panel panel-default">
+            <div class="panel panel-default auth-login">
                 <div class="panel-body">
                     <center>
                         <h2 class="form-signin-heading fontUnkempt">Autenticación</h2>
                     </center>
-
                     <div class="col-sm-6 col-lg-5">
                         <div class="form-group">
                             <label for="loginUsername">Nombre de usuario</label>
@@ -39,7 +38,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-lg-3">
+                    <div class="col-sm-12 col-lg-3" style="margin-top: 25px">
                         <button class="btn btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">Iniciar sesión</button>
                     </div>
                 </div>
@@ -62,7 +61,7 @@
 
             <br>
 
-            <div class="panel panel-default">
+            <div class="panel panel-default auth-create">
               <div class="panel-body">
                 <center>
                     <h2 class="form-signin-heading fontUnkempt">Registro</h2>
@@ -96,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-3">
+                <div class="col-sm-12 col-lg-3" style="margin-top: 25px">
                     <button class="btn btn-info btn-block" type="submit" ng-disabled="lognewForm.$invalid">Registrarse</button>
                 </div>
             </div>

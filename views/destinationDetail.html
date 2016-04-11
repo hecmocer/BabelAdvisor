@@ -1,5 +1,15 @@
 <div ng-controller="DestinationDetailCtrl">
-    <h1 class="fontUnkempt">{{::model.name }}</h1>
+    <h1>
+        <span class="fontUnkempt">
+            {{::model.name }} ({{::model.country }}) -
+        </span>
+        <button type="button" class="btn btn-default" ng-click="upVote()">
+            {{ model.upVotes }} <span class="glyphicon glyphicon-thumbs-up" style="color: green"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-click="downVote()">
+            {{ model.downVotes }} <span class="glyphicon glyphicon-thumbs-down" style="color: red"></span>
+        </button>
+    </h1>
     <br>
 
     <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
@@ -13,52 +23,38 @@
 
     <div ng-show="uiState=='ideal'">
 
-        <button type="button" class="btn btn-default" ng-click="upVote()">UpVote</button>
-        <button type="button" class="btn btn-default" ng-click="downVote()">DownVote</button>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>País</th>
-                    <th>Imagen principal</th>
-                    <th>Imagen 1</th>
-                    <th>Imagen 2</th>
-                    <th>Imagen 3</th>
-                    <th>Opinión</th>
-                    <th>Votos positivos</th>
-                    <th>Votos negativos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <td>
-                    {{::model.name }}
-                </td>
-                <td>
-                    {{::model.country }}
-                </td>
-                <td>
-                    <img ng-src="{{::model.picture_main }}" alt="img_main" style="width: 100px">
-                </td>
-                <td>
-                    <img ng-src="{{::model.picture_1 }}" alt="img_1" style="width: 100px">
-                </td>
-                <td>
-                    <img ng-src="{{::model.picture_2 }}" alt="img_2" style="width: 100px">
-                </td>
-                <td>
-                    <img ng-src="{{::model.picture_3 }}" alt="img_3" style="width: 100px">
-                </td>
-                <td>
-                    {{::model.opinion }}
-                </td>
-                <td>
-                    {{ model.upVotes }}
-                </td>
-                <td>
-                    {{ model.downVotes }}
-                </td>
-            </tbody>
-        </table>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <strong>Opinión:</strong> {{::model.opinion }}
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+                        <div class="img-container">
+                            <img ng-src="{{::model.picture_main }}" alt="img_main" style="width: 100%" class="img-scalable">
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="img-container-no-shadow" ng-show="model.picture_1!==null">
+                            <img ng-src="{{::model.picture_1 }}" alt="img_1" style="width: 100%" class="img-scalable">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="img-container-no-shadow" ng-show="model.picture_2!==null">
+                            <img ng-src="{{::model.picture_2 }}" alt="img_2" style="width: 100%" class="img-scalable">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="img-container-no-shadow" ng-show="model.picture_3 !== null">
+                            <img ng-src="{{::model.picture_3 }}" alt="img_3" style="width: 100%" class="img-scalable">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
