@@ -4,7 +4,6 @@ angular.module("babeladvisor").controller("LoginCtrl", ["$scope","login", "APICl
     $scope.model = {};
     $scope.errorMessage = null;
 
-
     $scope.login = function (name) {
         login.logIn(name);
         $scope.$emit("$loggedUser", name);

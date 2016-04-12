@@ -5,6 +5,7 @@ angular.module("babeladvisor").controller("NavBarCtrl", ["$scope", "$location", 
         currentUser: login.currentUser()
     }
     $scope.paths = paths;
+    $scope.dynamicAnimation = "";
 
     // metodos del scope
     $scope.getClassForItem = function(item) {
@@ -29,4 +30,12 @@ angular.module("babeladvisor").controller("NavBarCtrl", ["$scope", "$location", 
     $scope.$on("$userchange", function (evt, user) {
         $scope.model.currentUser = user.name;
     })
+
+    $scope.hoverIn = function(){
+        $scope.dynamicAnimation = "animated tada";
+    }
+
+    $scope.hoverOut = function(){
+        $scope.dynamicAnimation = "";
+    }
 }])
