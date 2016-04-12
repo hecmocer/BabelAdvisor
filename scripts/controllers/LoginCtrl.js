@@ -3,6 +3,7 @@ angular.module("babeladvisor").controller("LoginCtrl", ["$scope","login", "APICl
     //scope init
     $scope.model = {};
     $scope.errorMessage = null;
+    $scope.uiState = 'blank';
 
     $scope.login = function (name) {
         login.logIn(name);
@@ -10,6 +11,7 @@ angular.module("babeladvisor").controller("LoginCtrl", ["$scope","login", "APICl
     }
 
     $scope.checkPwd = function (name, pwd){
+        $scope.uiState = 'loading';
         APIClient.getUserPwd(name).then(
             function(result){
                 if(result.count > 0){
@@ -25,7 +27,7 @@ angular.module("babeladvisor").controller("LoginCtrl", ["$scope","login", "APICl
                 }
             },
             function(error){
-                console.log("No user found");
+                $scope.uiState = 'error';
             });
     }
 

@@ -1,7 +1,7 @@
 angular.module("babeladvisor").controller("HotelsCtrl", ["$scope", "$location", "APIClient", function($scope, $location, APIClient) {
 
     // model init
-    $scope.model = {};
+    $scope.model = [];
     $scope.uiState = "loading";
     getHotels();
 

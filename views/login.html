@@ -49,6 +49,16 @@
 
         <br>
 
+        <div ng-show="uiState=='loading'">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%">
+                </div>
+            </div>
+        </div>
+
+        <div ng-include="'views/errorLoadingData.html'" ng-show="uiState=='error'">
+        </div>
+
         <div class="col-sm-8 col-sm-offset-2">
             <div class="alert alert-danger" ng-show="errorMessage" role="alert">
                 <div ng-bind-html="errorMessage"></div>

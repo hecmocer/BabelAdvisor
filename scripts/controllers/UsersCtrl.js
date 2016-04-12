@@ -2,6 +2,7 @@ angular.module("babeladvisor").controller("UsersCtrl", ["$scope", "APIClient", f
 
     // model init
     $scope.model = {};
+    $scope.uiState = "loading"
     getUsers();
 
     function getUsers () {
@@ -9,11 +10,11 @@ angular.module("babeladvisor").controller("UsersCtrl", ["$scope", "APIClient", f
         // Lista de usuarios encontrados
         function(data) {
             $scope.model = data.rows;
+            $scope.uiState = "ideal";
         },
         // Promesa rechazada
         function(error) {
-            console.error("Error al cargar restaurantes");
-            //$scope.uiState = 'error';
+            $scope.uiState = "error";
         });
     }
 }])

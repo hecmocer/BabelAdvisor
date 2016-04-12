@@ -1,8 +1,8 @@
 angular.module("babeladvisor").controller("DestinationsCtrl", ["$scope", "$location", "APIClient", function($scope, $location, APIClient) {
 
     // model init
-    $scope.model = {};
-    $scope.uiState = "loading";
+    $scope.model = [];
+    $scope.uiState = 'loading';
     getDestinations();
 
     function getDestinations () {

@@ -1,10 +1,11 @@
 angular.module("babeladvisor").controller("CountriesCtrl", ["$scope", "APIClient", function($scope, APIClient) {
 
-    // model init
+    // Scope init
     $scope.model = {};
     $scope.uiState = "loading";
     getCountries();
 
+    // Función que carga en el model los paises
     function getCountries () {
         APIClient.getCountryList().then(
         // Lista de paises encontrados

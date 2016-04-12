@@ -74,6 +74,8 @@ angular.module("babeladvisor").controller("NewHotelCtrl",
         }
 
         function getCountries (){
+            $scope.countries[0] = "Cargando...";
+
             APIClient.getCountryList().then(
             // Lista de paises encontrados
             function(data) {
@@ -83,8 +85,8 @@ angular.module("babeladvisor").controller("NewHotelCtrl",
             },
             // Promesa rechazada
             function(error) {
-                console.error("Error al cargar paises");
-                //$scope.uiState = 'error';
+                $scope.countries[0] = "No se pudieron cargar";
+                $scope.countries[1] = "Error de servidor";
             });
         }
 

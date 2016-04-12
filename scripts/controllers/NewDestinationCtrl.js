@@ -47,6 +47,8 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
         }
 
         function getCountries (){
+            $scope.countries[0] = "Cargando...";
+
             APIClient.getCountryList().then(
             // Lista de paises encontrados
             function(data) {
@@ -56,7 +58,8 @@ angular.module("babeladvisor").controller("NewDestinationCtrl",
             },
             // Promesa rechazada
             function(error) {
-                console.error("Error al cargar paises");
+                $scope.countries[0] = "No se pudieron cargar";
+                $scope.countries[1] = "Error de servidor";
             });
         }
 
