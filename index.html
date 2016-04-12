@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="babeladvisor" ng-controller="AppCtrl">
+
+<head>
+    <title>BabelAdvisor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+</head>
+
+<body>
+    <div ng-include="'views/login.html'" ng-show="model.user===null"></div>
+    <div ng-show="model.user!==null">
+        <div ng-include="'views/navBar.html'"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="animated zoomIn" ng-view>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+{
+    "hotels": [
+    {
+        "name": "Las Arenas",
+        "country": "España",
+        "picture": "https://media-cdn.tripadvisor.com/media/photo-o/01/b4/66/9d/general.jpg",
+        "opinion": "Hotel espectacular",
+        "price": "Alto",
+        "url": "http://www.hotelvalencialasarenas.com/",
+        "upVotes": 999,
+        "downVotes": 99
+    },
+    {
+        "name": "DanHostel",
+        "country": "Dinamarca",
+        "picture": "http://danhostelcopenhagencity.dk/media/1146/10062013-363.jpg?width=1050&height=391&mode=crop",
+        "opinion": "Hotel barato en copenhague",
+        "price": "Bajo",
+        "url": "http://danhostelcopenhagencity.dk/es",
+        "upVotes": 0,
+        "downVotes": 0
+    },
+    {
+        "name": "Tivoli hotel",
+        "country": "Dinamarca",
+        "picture": "http://www.tnetnoc.com/hotelphotos/892/349892/2241284-Tivoli-Hotel-Copenhagen-Hotel-Exterior-3-DEF.jpg",
+        "opinion": "Hotel muy bien ubicado",
+        "price": "Alto",
+        "url": "http://www.tivolihotel.com/",
+        "upVotes": 0,
+        "downVotes": 0
+    },
+    {
+        "name": "Hotel Waldorf Hilton",
+        "country": "Reino Unido",
+        "picture": "https://upload.wikimedia.org/wikipedia/commons/7/76/Waldorf_Hotel_2.jpg",
+        "opinion": "Hotel aleatorio en Londres",
+        "price": "Alto",
+        "url": "http://www.waldorfhilton.co.uk/",
+        "upVotes": 0,
+        "downVotes": 0
+    },
+    {
+        "name": "Parador Mérida",
+        "country": "España",
+        "picture": "http://www.ocholeguas.com/especiales/2009/03/paradores/html/imagenes/extremadura/merida.jpg",
+        "opinion": "Estancia barata y asequible",
+        "price": "Medio",
+        "url": "http://www.parador.es/es/paradores/parador-de-merida",
+        "upVotes": 1,
+        "downVotes": 0
+    },
+    {
+        "name": "Hotel Ritz",
+        "country": "España",
+        "picture": "http://www.escapadasmadrid.com/wp-content/uploads/2007/04/hotel-ritz-madrid.jpg",
+        "opinion": "De los hoteles más lujosos de Madrid",
+        "price": "Alto",
+        "url": "https://es.wikipedia.org/wiki/Hotel_Ritz_(Madrid)",
+        "upVotes": 0,
+        "downVotes": 99999
+    }
+]
+}

@@ -1,0 +1,162 @@
+<div ng-controller="NewHotelCtrl">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h1 class="fontUnkempt">Nuevo Hotel</h1>
+        <br>
+
+        <div class="alert alert-success" ng-show="successMessage" ng-bind-html="successMessage"></div>
+        <div class="alert alert-error" ng-show="errorMessage" ng-bind-html="errorMessage"></div>
+
+        <form name="hotelForm" class="form-horizontal" novalidate ng-submit="hotelForm.$valid && validCountry && validPrice && saveForm()">
+
+            <div class="form-group" ng-class="
+            { 'has-success': hotelForm.name.$valid
+            && hotelForm.name.$dirty,
+            'has-error': hotelForm.name.$invalid
+            && hotelForm.name.$dirty }">
+                <label for="name" class="col-sm-2 control-label">Nombre</label>
+                <div class="col-sm-9 col-xs-11">
+                    <input type="text" name="name" class="form-control" ng-model="model.name" required autofocus>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': hotelForm.name.$valid
+                    && hotelForm.name.$dirty,
+                    'glyphicon-remove red_class': hotelForm.name.$invalid
+                    && hotelForm.name.$dirty ,
+                    'glyphicon-pencil': hotelForm.name.$pristine }"></span>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="
+            { 'has-success': validCountry
+            && hotelForm.country.$dirty,
+            'has-error': invalidCountry
+            && hotelForm.country.$dirty }">
+                <label for="country" class="col-sm-2 control-label">País</label>
+                <div class="col-sm-5 col-xs-11">
+                    <input type="text" name="country" class="form-control" ng-model="model.country" required>
+                </div>
+                <div class="col-sm-2 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': validCountry
+                    && hotelForm.country.$dirty,
+                    'glyphicon-remove red_class': invalidCountry
+                    && hotelForm.country.$dirty ,
+                    'glyphicon-pencil': hotelForm.country.$pristine }"></span>
+                </div>
+                <div class="col-xs-2 col-xs-offset-4 col-sm-offset-0">
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Listado de paises
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in countries">
+                                <a href="#/hotels/new">{{::item }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="form-group" ng-class="
+            { 'has-success': validPrice
+            && hotelForm.price.$dirty,
+            'has-error': invalidPrice
+            && hotelForm.price.$dirty }">
+                <label for="price" class="col-sm-2 control-label">Precio</label>
+                <div class="col-sm-5 col-xs-11">
+                    <input type="text" name="price" class="form-control" ng-model="model.price" required>
+                </div>
+                <div class="col-sm-2 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': validPrice
+                    && hotelForm.price.$dirty,
+                    'glyphicon-remove red_class': invalidPrice
+                    && hotelForm.price.$dirty ,
+                    'glyphicon-pencil': hotelForm.price.$pristine }"></span>
+                </div>
+                <div class="col-xs-2 col-xs-offset-4 col-sm-offset-0">
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Posibles precios
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in prices">
+                                <a href="#">{{::item }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="form-group" ng-class="
+            { 'has-success': hotelForm.picture_main.$valid
+            && hotelForm.picture_main.$dirty,
+            'has-error': hotelForm.picture_main.$invalid
+            && hotelForm.picture_main.$dirty }">
+                <label for="picture_main" class="col-sm-2 control-label">Imagen</label>
+                <div class="col-sm-9 col-xs-11">
+                    <input type="url" name="picture_main" placeholder="http://" class="form-control" ng-model="model.picture_main" required>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <span class="glyphicon margin_top_class" ng-class="
+                    { 'glyphicon-ok green_class': hotelForm.picture_main.$valid
+                    && hotelForm.picture_main.$dirty,
+                    'glyphicon-remove red_class': hotelForm.picture_main.$invalid
+                    && hotelForm.picture_main.$dirty,
+                    'glyphicon-pencil': hotelForm.picture_main.$pristine }"></span>
+                </div>
+            </div>
+
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <span>
+                        Opcional
+                    </span>
+                    <span class="pull-right">
+                        <a class="toggleCollapse collapsed" data-toggle="collapse" data-target="#opcionales"></a>
+                    </span>
+                </div>
+                <div class="panel-body collapse" id="opcionales">
+
+                    <div class="form-group" ng-class="
+                    { 'has-success': hotelForm.url.$valid
+                    && hotelForm.url.$dirty,
+                    'has-error': hotelForm.url.$invalid
+                    && hotelForm.url.$dirty }">
+                        <label for="url" class="col-sm-2 control-label">Imagen 1</label>
+                        <div class="col-sm-9 col-xs-11">
+                            <input type="url" name="url" placeholder="http://" class="form-control" ng-model="model.url">
+                        </div>
+                        <div class="col-sm-1 col-xs-1">
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-class="
+                    { 'has-success': hotelForm.opinion.$valid
+                    && hotelForm.opinion.$dirty,
+                    'has-error': hotelForm.opinion.$invalid
+                    && hotelForm.opinion.$dirty }">
+                        <label for="opinion" class="col-sm-2 control-label">Opinión</label>
+                        <div class="col-sm-9 col-xs-11">
+                            <textarea name="opinion" ng-model="model.opinion" class="form-control">
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <center>
+                <button class="btn btn-primary" type="submit" ng-disabled="hotelForm.$invalid || invalidCountry || invalidPrice">Crear Hotel</button>
+            </center>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+</div>

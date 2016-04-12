@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API INDEX</title>
+</head>
+<body>
+    <h1>API BabelAdvisor</h1>
+
+    <table style="width:700px">
+        <tr>
+            <td>
+                Ruta
+            </td>
+            <td>
+                Petición
+            </td>
+            <td>
+                Acción
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Renderiza el índice del api
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/<strong>users</strong>
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los usuarios
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/users/?n=(...)
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve el usuario con dicho nombre
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/users
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un usuario
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/users/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el usuario con dicho _id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/<strong>countries</strong>
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los paises
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/countries/:id
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve la información particular del pais con dicho _id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/countries
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un pais
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/countries/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el pais con dicho _id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/<strong>destinations</strong>/?c=(...)
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los destinos (parámetro 'c' por país)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/destinations
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un destino
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/destinations/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el destino con dicho _id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/<strong>hotels</strong>/?c=(...)
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los hoteles (parámetro 'c' por país)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/hotels
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un hotel
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/hotels/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el hotel con dicho _id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/<strong>restaurants</strong>/?c=(...)
+            </td>
+            <td>
+                GET
+            </td>
+            <td>
+                Devuelve todos los restaurantes (parámetro 'c' por país)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/restaurants
+            </td>
+            <td>
+                POST
+            </td>
+            <td>
+                Inserta un restaurante
+            </td>
+        </tr>
+        <tr>
+            <td>
+                api/v1/restaurants/:id
+            </td>
+            <td>
+                DELETE
+            </td>
+            <td>
+                Borra el restaurante con dicho _id
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

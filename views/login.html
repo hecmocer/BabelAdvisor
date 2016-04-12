@@ -1,0 +1,108 @@
+<div class="container" ng-controller="LoginCtrl">
+
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <h1 class="animated bounceIn" id="title">Bienvenido a
+            <span class="fontUnkempt">BabelAdvisor</span>
+        </h1>
+
+        <br>
+
+        <center>
+            <div class="animated bounceInLeft img-container" style="width: 129px">
+                <img id="brand" class="img-scalable" src="../public/logo.png" alt="Logo" style="width: 125px">
+            </div>
+        </center>
+
+        <br>
+
+        <button class="btn btn-primary btn-sm toggleCollapse collapsed animated bounceInLeft" type="button" data-toggle="collapse" data-target="#iniciarSesion">Iniciar sesión </button>
+
+        <form name="loginForm" class="form-signin row collapse" novalidate ng-submit="checkPwd(model.usernameLogin, model.passLogin)" id="iniciarSesion">
+
+            <br>
+
+            <div class="panel panel-default auth-login">
+                <div class="panel-body">
+                    <center>
+                        <h2 class="form-signin-heading fontUnkempt">Autenticación</h2>
+                    </center>
+                    <div class="col-sm-6 col-lg-5">
+                        <div class="form-group">
+                            <label for="loginUsername">Nombre de usuario</label>
+                            <input id="loginUsername" class="form-control" placeholder="Usuario" required autofocus ng-model="model.usernameLogin">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="loginPassword">Contraseña</label>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Contraseña" required ng-model="model.passLogin">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-3" style="margin-top: 25px">
+                        <button class="btn btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">Iniciar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <br>
+
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="alert alert-danger" ng-show="errorMessage" role="alert">
+                <div ng-bind-html="errorMessage"></div>
+            </div>
+        </div>
+
+        <br>
+
+        <button class="btn btn-info btn-sm toggleCollapse collapsed animated bounceInLeft" type="button" data-toggle="collapse" data-target="#registrarse">Registrarse </button>
+
+        <form name="lognewForm" class="form-signin row collapse" novalidate ng-submit="createUser(model.username, model.password, model.email, model.profilePicture)" id="registrarse">
+
+            <br>
+
+            <div class="panel panel-default auth-create">
+              <div class="panel-body">
+                <center>
+                    <h2 class="form-signin-heading fontUnkempt">Registro</h2>
+                </center>
+
+                <div class="col-sm-6 col-lg-5">
+                    <div class="form-group">
+                        <label for="inputUsername">Nombre de usuario</label>
+                        <input id="inputUsername" class="form-control" placeholder="Usuario" required autofocus ng-model="model.username">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="inputPassword">Contraseña</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required ng-model="model.password">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-5">
+                    <div class="form-group">
+                        <label for="inputProfilePicture">Imagen de perfil (opcional)</label>
+                        <input type="url" id="inputProfilePicture" class="form-control" placeholder="http://" autofocus ng-model="model.profilePicture">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group" ng-class="{ 'has-success': lognewForm.inputEmail.$valid && lognewForm.inputEmail.$dirty, 'has-error': lognewForm.inputEmail.$invalid && lognewForm.inputEmail.$dirty }">
+                        <label for="inputEmail">Correo electrónico</label>
+                        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="usuario@dominio.com" required ng-model="model.email">
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-3" style="margin-top: 25px">
+                    <button class="btn btn-info btn-block" type="submit" ng-disabled="lognewForm.$invalid">Registrarse</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

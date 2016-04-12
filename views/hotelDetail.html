@@ -1,0 +1,46 @@
+<div ng-controller="HotelDetailCtrl">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+
+        <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
+        </div>
+
+        <div ng-include="'views/noData.html'" ng-show="uiState=='blank'">
+        </div>
+
+        <div ng-include="'views/errorLoadingData.html'" ng-show="uiState=='error'">
+        </div>
+
+        <div ng-show="uiState=='ideal'">
+
+            <h1>
+                <span class="fontUnkempt">
+                    {{::model.name }} -
+                </span>
+                <button type="button" class="btn btn-default" ng-click="upVote()">
+                    {{ model.upVotes }} <span class="glyphicon glyphicon-thumbs-up" style="color: green"></span>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="downVote()">
+                    {{ model.downVotes }} <span class="glyphicon glyphicon-thumbs-down" style="color: red"></span>
+                </button>
+            </h1>
+            <br>
+
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <strong>Opinión: </strong> {{::model.opinion }}
+                </div>
+                <div class="panel-body">
+                    <div class="img-container-no-shadow">
+                        <img ng-src="{{::model.picture }}" class="img-scalable" alt="imagen" style="width: 100%">
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    {{::model.price}} <span class="glyphicon glyphicon-euro" style="font-size: 0.9em"></span>
+                    <div class="pull-right">
+                        <a href="{{::model.url}}">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

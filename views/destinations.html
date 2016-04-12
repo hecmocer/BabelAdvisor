@@ -1,0 +1,70 @@
+<div ng-controller="DestinationsCtrl">
+    <h1>
+        <span class="fontUnkempt">Destinos - </span>
+        <a href="#/destinations/new" type="button" class="btn btn-primary" style="margin-top: -5px">Crear nuevo!</a>
+    </h1>
+    <br>
+    <br>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-lg-offset-2">
+        <input type="search" ng-model="query.name" class="form-control input-sm" placeholder="Buscar por lugar...">
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <input type="search" ng-model="query.country" class="form-control input-sm" placeholder="Buscar por país...">
+    </div>
+
+    <div ng-include="'views/progressBar.html'" ng-show="uiState=='loading'">
+    </div>
+
+    <div ng-include="'views/noData.html'" ng-show="uiState=='blank'">
+    </div>
+
+    <div ng-include="'views/errorLoadingData.html'" ng-show="uiState=='error'">
+    </div>
+
+    <table class="table table-striped" ng-show="uiState=='ideal'">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>País</th>
+                <th><center>Portada</center></th>
+                <th><center>Votos positivos</center></th>
+                <th><center>Votos negativos</center></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model | filter:query">
+                <td>
+                    <a href="{{::item.link }}" class="no-decoration">
+                        <h4>{{::item.name }}</h4>
+                    </a>
+                </td>
+                <td>
+                    <a href="#/countries/" class="no-decoration">
+                        {{::item.country }}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{::item.link }}" class="no-decoration">
+                        <div class="img-container-no-shadow-no-border">
+                            <center>
+                                <img ng-src="{{::item.picture_main }}" class="img-scalable" alt="imagenPortada" style="width: 200px">
+                            </center>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <center>
+                        <h4><span class="label label-success">{{::item.upVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <h4><span class="label label-danger">{{::item.downVotes }} <span class="glyphicon glyphicon-thumbs-up"></span></span></h4>
+                    </center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 ng-show="(model | filter:query).length === 0">No hay resultados</h4>
+</div>

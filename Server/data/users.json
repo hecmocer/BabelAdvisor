@@ -1,0 +1,28 @@
+{
+    "users": [
+    {
+        "profile_picture": "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+        "name": "Admin",
+        "email": "Admin@gmail.com",
+        "pwd": "logmepls"
+    },
+    {
+        "profile_picture": "http://cdn0.omidoo.com/sites/tgdaily/files/images/original/lego-batman.jpg",
+        "name": "Batman",
+        "email": "nananana@batman.com",
+        "pwd": "yosoyBATMAN"
+    },
+    {
+        "profile_picture": "http://angelvs.planetaclix.pt/ebay/matrix/MatrixNeoO_files/neo2_05.gif",
+        "name": "Neo",
+        "email": "elelegido@matrix.mat",
+        "pwd": "wakeupneo"
+    },
+    {
+        "profile_picture": "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+        "name": "h4ck3r",
+        "email": "hck@hotmail.com",
+        "pwd": "allyourpwdarebelongtome"
+    }
+    ]
+}
