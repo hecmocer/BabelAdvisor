@@ -21,8 +21,8 @@
                     <li ng-class="getClassForItem(paths.restaurants)"><a href="#{{::paths.restaurants}}"><span class="glyphicon glyphicon-cutlery"></span> Restaurantes</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#{{::paths.home}}"><span class="glyphicon glyphicon-home"></span> {{ model.currentUser }}</a></li>
-                    <li><a href="#{{::paths.home}}" ng-class="dynamicAnimation" ng-click="logout()" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li ng-class="getClassForItem(paths.home)"><a href="#{{::paths.home}}" ng-class="dynamicAnimation" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()"><span class="glyphicon glyphicon-home"></span> {{ model.currentUser }}</a></li>
+                    <li><a href="#{{::paths.home}}" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
                 </ul>
             </div>

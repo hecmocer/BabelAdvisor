@@ -1,27 +1,29 @@
 <div ng-controller="UsersCtrl">
-    <h1 class="fontUnkempt">Usuarios</h1>
-    <br>
+    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <h1 class="fontUnkempt">Usuarios</h1>
+        <br>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Imagen de perfil</th>
-                <th>Nombre de usuario</th>
-                <th>Correo electrónico</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in model">
-                <td>
-                    <img ng-src="{{::item.profile_picture }}" alt="profilePicture" style="width: 50px">
-                </td>
-                <td>
-                    {{::item.name }}
-                </td>
-                <td>
-                    {{::item.email }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Imagen de perfil</th>
+                    <th>Nombre de usuario</th>
+                    <th>Correo electrónico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in model">
+                    <td>
+                        <img ng-src="{{::item.profile_picture }}" alt="profilePicture" style="width: 50px">
+                    </td>
+                    <td>
+                        {{::item.name }}
+                    </td>
+                    <td>
+                        {{::item.email }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
